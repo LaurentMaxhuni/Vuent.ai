@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,11 +29,12 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
 </head>
+
 <body>
     <header>
         <nav class="navbar fixed-top navbar-expand-lg">
             <div class="container">
-                <a class="navbar-brand tw-font-bold" href="#">Dex.ai</a>
+                <a class="navbar-brand tw-font-bold" href="#">RadiantX</a>
                 <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -55,7 +57,7 @@
                                 Services
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="html/chatbot.html">AI Chatbot</a></li>
+                                <li><a class="dropdown-item active" href="html/chatbot.html">AI Chatbot</a></li>
                                 <li><a class="dropdown-item" href="html/code.html">AI Code</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
@@ -68,6 +70,63 @@
             </div>
         </nav>
     </header>
+    <section class="mt-5 py-5 tw-h-[80vh] tw-flex tw-justify-center tw-items-center hero">
+        <div class="container">
+            <div class="row text-center tw-flex tw-justify-center tw-items-center">
+                <div class="sphere">
+                    <div class="container1 palette-1">
+                        <div class="blobs">
+                            <svg viewBox="0 0 1200 1200">
+                                <g class="blob blob-1">
+                                    <path d="M 100 600 q 0 -500, 500 -500 t 500 500 t -500 500 T 100 600 z" />
+                                </g>
+                                <g class="blob blob-2">
+                                    <path d="M 100 600 q -50 -400, 500 -500 t 450 550 t -500 500 T 100 600 z" />
+                                </g>
+                                <g class="blob blob-3">
+                                    <path d="M 100 600 q 0 -400, 500 -500 t 400 500 t -500 500 T 100 600 z" />
+                                </g>
+                                <g class="blob blob-4">
+                                    <path d="M 150 600 q 0 -600, 500 -500 t 500 550 t -500 500 T 150 600 z" />
+                                </g>
+                                <g class="blob blob-1 alt">
+                                    <path d="M 150 600 q 0 -600, 500 -500 t 500 550 t -500 500 T 150 600 z" />
+                                </g>
+                                <g class="blob blob-2 alt">
+                                    <path d="M 100 600 q 100 -600, 500 -500 t 400 500 t -500 500 T 100 600 z" />
+                                </g>
+                                <g class="blob blob-3 alt">
+                                    <path d="M 100 600 q -50 -400, 500 -500 t 450 550 t -500 500 T 100 600 z" />
+                                </g>
+                                <g class="blob blob-4 alt">
+                                    <path d="M 100 600 q 0 -400, 500 -500 t 400 500 t -500 500 T 100 600 z" />
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <h1 class="display-1">Welcome to RadiantX AI!</h1>
+                <p class="lead display-6">Where we connect you to the future!</p>
+            </div>
+        </div>
+    </section>
+    <section class="mt-5 py-5 tw-h-[80vh] tw-flex tw-items-center overview" style="margin-top: 4rem !important; margin-bottom: 2rem !important;">
+        <div class="container">
+            <div class="row">
+                <h1 class="text-center">AI Overview</h1>
+                <div class="col-12 col-xl-6 col-lg-6">
+                    <h1 class="overview-item">AI Chatbot</h1>
+                    <h1 class="overview-item">AI Code</h1>
+                    <h1 class="overview-item">AI Designer</h1>
+                    <h1 class="overview-item">AI Text-To-Speech</h1>
+                </div>
+                <div class="col-12 col-xl-6 col-lg-6">
+                    <img src="" alt="" width="300" height="300" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
     <script>
         tailwind.config = {
             prefix: "tw-",
@@ -94,7 +153,6 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- My Links -->
     <script src="js/script.js"></script>
-    <script src="js/chart.js"></script>
     <script>
         AOS.init({ disable: 'mobile' });
     </script>
@@ -102,4 +160,5 @@
         new WOW().init();
     </script>
 </body>
+
 </html>

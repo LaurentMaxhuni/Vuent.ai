@@ -1,0 +1,439 @@
+@import url('https://fonts.googleapis.com/css?family=Alexandria:700|Noto%20Sans%20Anatolian%20Hieroglyphs:400');
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --text-50: #f0f5f3;
+        --text-100: #e0ebe7;
+        --text-200: #c1d7d0;
+        --text-300: #a2c3b8;
+        --text-400: #84aea0;
+        --text-500: #659a88;
+        --text-600: #517b6d;
+        --text-700: #3c5d52;
+        --text-800: #283e37;
+        --text-900: #141f1b;
+        --text-950: #0a0f0e;
+
+        --background-50: #eef6f2;
+        --background-100: #ddeee6;
+        --background-200: #bbddcc;
+        --background-300: #99ccb3;
+        --background-400: #77bb99;
+        --background-500: #55aa80;
+        --background-600: #448866;
+        --background-700: #33664d;
+        --background-800: #224433;
+        --background-900: #11221a;
+        --background-950: #09110d;
+
+        --primary-50: #ebfaf4;
+        --primary-100: #d7f4e8;
+        --primary-200: #afe9d2;
+        --primary-300: #87debb;
+        --primary-400: #5fd3a5;
+        --primary-500: #37c88e;
+        --primary-600: #2ca072;
+        --primary-700: #217855;
+        --primary-800: #165039;
+        --primary-900: #0b281c;
+        --primary-950: #05140e;
+
+        --secondary-50: #e9fcf4;
+        --secondary-100: #d3f8e9;
+        --secondary-200: #a7f1d3;
+        --secondary-300: #7beabe;
+        --secondary-400: #4fe3a8;
+        --secondary-500: #22dd92;
+        --secondary-600: #1cb075;
+        --secondary-700: #158458;
+        --secondary-800: #0e583a;
+        --secondary-900: #072c1d;
+        --secondary-950: #03160f;
+
+        --accent-50: #e7fef5;
+        --accent-100: #cefdea;
+        --accent-200: #9efad5;
+        --accent-300: #6df8c0;
+        --accent-400: #3cf6ac;
+        --accent-500: #0bf497;
+        --accent-600: #09c379;
+        --accent-700: #07925a;
+        --accent-800: #05613c;
+        --accent-900: #02311e;
+        --accent-950: #01180f;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-50: #0a0f0d;
+        --text-100: #141f1b;
+        --text-200: #293d35;
+        --text-300: #3d5c50;
+        --text-400: #527a6a;
+        --text-500: #669985;
+        --text-600: #85ad9d;
+        --text-700: #a3c2b6;
+        --text-800: #c2d6ce;
+        --text-900: #e0ebe7;
+        --text-950: #f0f5f3;
+
+        --background-50: #08120d;
+        --background-100: #0f241a;
+        --background-200: #1f4733;
+        --background-300: #2e6b4d;
+        --background-400: #3d8f66;
+        --background-500: #4db380;
+        --background-600: #70c299;
+        --background-700: #94d1b3;
+        --background-800: #b8e0cc;
+        --background-900: #dbf0e6;
+        --background-950: #edf7f2;
+
+        --primary-50: #05140e;
+        --primary-100: #0b281c;
+        --primary-200: #165039;
+        --primary-300: #217855;
+        --primary-400: #2ca072;
+        --primary-500: #37c88e;
+        --primary-600: #5fd3a5;
+        --primary-700: #87debb;
+        --primary-800: #afe9d2;
+        --primary-900: #d7f4e8;
+        --primary-950: #ebfaf4;
+
+        --secondary-50: #03160f;
+        --secondary-100: #072c1d;
+        --secondary-200: #0e583a;
+        --secondary-300: #158458;
+        --secondary-400: #1cb075;
+        --secondary-500: #22dd92;
+        --secondary-600: #4fe3a8;
+        --secondary-700: #7beabe;
+        --secondary-800: #a7f1d3;
+        --secondary-900: #d3f8e9;
+        --secondary-950: #e9fcf4;
+
+        --accent-50: #01180f;
+        --accent-100: #02311e;
+        --accent-200: #05613c;
+        --accent-300: #07925a;
+        --accent-400: #09c379;
+        --accent-500: #0bf497;
+        --accent-600: #3cf6ac;
+        --accent-700: #6df8c0;
+        --accent-800: #9efad5;
+        --accent-900: #cefdea;
+        --accent-950: #e7fef5;
+    }
+}
+*::selection {
+    color: var(--text-50) !important;
+    background: none !important;
+    background-color: var(--background-500) !important;
+}
+
+::-webkit-scrollbar {
+    background: transparent !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--text-500) !important;
+    border-radius: 10px;
+}
+
+body {
+    background-color: var(--background-200) !important;
+    font-family: 'Noto Sans Anatolian Hieroglyphs';
+    font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+a {
+    font-family: 'Alexandria';
+    font-weight: 700;
+}
+
+.navbar-brand {
+    font-size: 1.5rem !important;
+    font-weight: bold;
+    background: linear-gradient(to right, var(--text-500), var(--text-700));
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    user-select: none;
+}
+
+.nav-link {
+    font-size: 1.15rem !important;
+    color: var(--text-600) !important;
+    user-select: none;
+    &:hover {
+        color: var(--text-500) !important;
+    }
+    &:active {
+        color: var(--text-400) !important;
+    }  
+}
+
+.dropdown-toggle {
+    color: var(--text-600) !important;
+}
+
+.dropdown-menu {
+    background-color: var(--background-200) !important;
+    box-shadow: 0 0 6px rgba(0, 0, 0, .1) !important;
+}
+
+.dropdown-menu .dropdown-item {
+    font-size: 1.15rem !important;
+    color: var(--text-600) !important;
+    &:hover {
+        color: var(--text-500) !important;
+        background-color: initial !important;
+    }
+    &:active {
+        color: var(--text-400) !important;
+    }  
+}
+
+.dropdown-menu .dropdown-item.active {
+    font-weight: 900;
+    background-color: initial;
+}
+
+.container1,
+.palette-1 {
+    --blob-1: var(--accent-200);
+    --blob-2: var(--accent-300);
+    --blob-3: var(--accent-400);
+    --blob-4: var(--accent-500);
+}
+
+.container1 {
+    /* width: 300px !important;  */
+    /* height: 300px !important; */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: background 1000ms ease;
+
+    &::after {
+        position: absolute;
+        content: "";
+        width: 500px;
+        height: 500px;
+        background: var(--bg-0);
+        border-radius: 50%;
+        filter: blur(10rem);
+
+        transition: background 500ms ease;
+    }
+}
+
+.sphere {
+    position: absolute;
+    z-index: -1;
+    opacity: 0.5;
+    width: 400px !important;
+    height: 400px !important;
+}
+
+.blobs {
+    --shape-1: "M 100 600 q 0 -500, 500 -500 t 500 500 t -500 500 T 100 600 z";
+    --shape-2: "M 100 600 q -50 -400, 500 -500 t 450 550 t -500 500 T 100 600 z";
+    --shape-3: "M 100 600 q 0 -400, 500 -500 t 400 500 t -500 500 T 100 600 z";
+    --shape-4: "M 150 600 q 0 -600, 500 -500 t 500 550 t -500 500 T 150 600 z";
+    --shape-5: "M 150 600 q 0 -600, 500 -500 t 500 550 t -500 500 T 150 600 z";
+    --shape-6: "M 100 600 q 100 -600, 500 -500 t 400 500 t -500 500 T 100 600 z";
+    width: 400px !important;
+    height: 400px !important;
+    max-height: 500px !important;
+    max-width: 500px !important;
+}
+
+svg {
+    position: relative;
+    height: 100%;
+    z-index: 2;
+}
+
+.blob {
+    animation: rotate 25s infinite alternate ease-in-out;
+    transform-origin: 50% 50%;
+    opacity: 0.7;
+}
+
+.blob path {
+    animation: blob-anim-1 5s infinite alternate cubic-bezier(0.45, 0.2, 0.55, 0.8);
+    transform-origin: 50% 50%;
+    transform: scale(0.8);
+    transition: fill 800ms ease;
+}
+
+.blob.alt {
+    animation-direction: alternate-reverse;
+    opacity: 0.3;
+}
+
+.blob-1 path {
+    fill: var(--blob-1);
+    filter: blur(1rem);
+}
+
+.blob-2 {
+    animation-duration: 18s;
+    animation-direction: alternate-reverse;
+}
+
+.blob-2 path {
+    fill: var(--blob-2);
+    animation-name: blob-anim-2;
+    animation-duration: 7s;
+    filter: blur(0.75rem);
+    transform: scale(0.78);
+}
+
+.blob-2.alt {
+    animation-direction: alternate;
+}
+
+.blob-3 {
+    animation-duration: 23s;
+}
+
+.blob-3 path {
+    fill: var(--blob-3);
+    animation-name: blob-anim-3;
+    animation-duration: 6s;
+    filter: blur(0.5rem);
+    transform: scale(0.76);
+}
+
+.blob-4 {
+    animation-duration: 31s;
+    animation-direction: alternate-reverse;
+    opacity: 0.9;
+}
+
+.blob-4 path {
+    fill: var(--blob-4);
+    animation-name: blob-anim-4;
+    animation-duration: 10s;
+    filter: blur(10rem);
+    transform: scale(0.5);
+}
+
+.blob-4.alt {
+    animation-direction: alternate;
+    opacity: 0.8;
+}
+
+@keyframes blob-anim-1 {
+    0% {
+        clip-path: path(var(--shape-1));
+    }
+    30% {
+        clip-path: path(var(--shape-2));
+    }
+    70% {
+        clip-path: path(var(--shape-3));
+    }
+    100% {
+        clip-path: path(var(--shape-4));
+    }
+}
+
+@keyframes blob-anim-2 {
+    0% {
+        clip-path: path(var(--shape-3));
+    }
+    40% {
+        clip-path: path(var(--shape-5));
+    }
+    80% {
+        clip-path: path(var(--shape-2));
+    }
+    100% {
+        clip-path: path(var(--shape-6));
+    }
+}
+
+@keyframes blob-anim-3 {
+    0% {
+        clip-path: path(var(--shape-2));
+    }
+    35% {
+        clip-path: path(var(--shape-4));
+    }
+    75% {
+        clip-path: path(var(--shape-6));
+    }
+    100% {
+        clip-path: path(var(--shape-3));
+    }
+}
+
+@keyframes blob-anim-4 {
+    0% {
+        clip-path: path(var(--shape-4));
+    }
+    30% {
+        clip-path: path(var(--shape-6));
+    }
+    70% {
+        clip-path: path(var(--shape-2));
+    }
+    100% {
+        clip-path: path(var(--shape-5));
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+.hero h1 {
+    background: linear-gradient(to right, var(--text-400), var(--text-600), var(--text-800));
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    user-select: none;
+}
+
+.hero p {
+    color: var(--text-900);
+    user-select: none;  
+}
+
+.overview h1 {
+    color: var(--text-600);
+}
+
+.overview .overview-item {
+    color: var(--text-900);
+    font-size: 2rem;
+    background-color: var(--accent-200);
+    border-radius: 25px;
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.overview .overview-item::before {
+    content: "✨ ";
+}
