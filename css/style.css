@@ -148,14 +148,24 @@ body {
     font-weight: 400;
 }
 
+nav {
+    background-color: var(--background-200) !important;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.1) !important;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
+p,
 a {
     font-family: 'Alexandria';
     font-weight: 700;
+}
+
+p, li {
+    color: var(--text-600) !important ;
 }
 
 .navbar-brand {
@@ -227,8 +237,8 @@ a {
     &::after {
         position: absolute;
         content: "";
-        width: 500px;
-        height: 500px;
+        width: 400px;
+        height: 400px;
         background: var(--bg-0);
         border-radius: 50%;
         filter: blur(10rem);
