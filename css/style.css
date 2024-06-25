@@ -277,4 +277,5 @@ svg {
 .col-12 {
     display: grid;
     place-self: center;
+    overflow-x: hidden !important;
 }
