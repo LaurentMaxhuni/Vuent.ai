@@ -20,12 +20,7 @@
 }
 
 body {
-    background: linear-gradient(
-        -45deg, 
-        /* var(--color-3) 0%, */
-        var(--color-2) 33%, 
-        var(--color-1) 100%
-    ) !important;
+    background: linear-gradient(269deg, /* var(--color-3) 0%, */ var(--color-2) 33%, var(--color-1) 100%) !important;
     font-family: 'Noto Sans Anatolian Hieroglyphs';
     font-weight: 400;
 }
