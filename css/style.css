@@ -274,7 +274,7 @@ svg {
     color: var(--white) !important;  
 }
 
-.col-12 {
+.col-12, .col-lg-6 {
     display: grid;
     place-self: center;
     overflow-x: hidden !important;
