@@ -285,5 +285,5 @@ svg {
 }
 
 .row {
-    overflow-x: hidden !important;
+    overflow: hidden !important;
 }
