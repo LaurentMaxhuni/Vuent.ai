@@ -69,12 +69,15 @@
                         <h1>Vuent.ai</h1>
                         <p>Your best AI Companion</p>
                     </div>
-                    <div class="chatbot-messsages">
+                    <div class="chatbot-messsages" id="displayMessages">
 
                     </div>
                     <div class="chatbot-footer">
-                        <input type="text" id="userInput" placeholder="Enter your message..." class="user-input">
-                        <button class="send-button" id="sendButton"><i class="fi fi-rr-paper-plane-launch"></i></button>
+                        <div class="wrapper">
+                            <input type="text" id="userInput" placeholder="Enter your message..." class="user-input">
+                            <button class="send-button" id="sendButton"><i
+                                    class="fi fi-rr-paper-plane-launch"></i></button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -105,7 +108,7 @@
     <!-- Animate On Scroll Links -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- My Links -->
-    <script src="js/script.js"></script>
+    <script src="../js/chatbot.js"></script>
     <script>
         AOS.init({ disable: 'mobile' });
     </script>
