@@ -54,6 +54,19 @@ li {
     font-weight: bold;
 }
 
+.nav-link {
+    color: var(--white) !important;
+    font-size: 1.2rem;
+    font-weight: 400;
+    transition: .3s;
+    &:hover {
+        color: var(--blob-color-2) !important;
+    }
+    &:active {
+        color: var(--blob-color-1) !important;
+    }
+}
+
 
 .dropdown-menu {
     backdrop-filter: blur(15px);
@@ -61,12 +74,20 @@ li {
 }
 
 .dropdown-menu .dropdown-item {
-    background-color: initial;
+    font-weight: 900;
+    transition: .3s;
+    &:hover {
+        color: var(--blob-color-2) !important;
+    }
 }
 
 .dropdown-menu .dropdown-item.active {
     font-weight: 900;
-    background-color: initial;
+    background-color: var(--blob-color-4);
+    transition: .3s;
+    &:hover {
+        color: var(--white) !important;
+    }
 }
 
 .container1,

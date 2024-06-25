@@ -1,0 +1,310 @@
+@import url('https://fonts.googleapis.com/css?family=Alexandria:700|Noto%20Sans%20Anatolian%20Hieroglyphs:400');
+
+:root {
+    --color-1:#3558FF;
+    --color-2:#9F1DFF;
+    --color-3:#FF642C;
+
+    --blob-color-1: #8095ff;
+    --blob-color-2: #a6b5ff;
+    --blob-color-3: #ffa987;
+    --blob-color-4:  #ff8f95;
+
+    --white: #fff5f5;
+    --black: #1f1f1f;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    color: var(--white) !important;
+}
+
+body {
+    background: linear-gradient(269deg, /* var(--color-3) 0%, */ var(--color-2) 33%, var(--color-1) 100%) !important;
+    font-family: 'Noto Sans Anatolian Hieroglyphs';
+    font-weight: 400;
+}
+
+nav {
+    top: 10px !important;
+    left: 20px !important;
+    right: 20px !important;
+    background: rgba(255, 255, 255, .2) !important;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.1) !important;
+    border-radius: 15px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+a,
+li {
+    color: var(--white) !important;
+    font-family: 'Alexandria';
+    font-weight: 700;
+}
+
+
+.navbar-brand {
+    font-size: 1.5rem !important;
+    font-weight: bold;
+}
+
+.nav-link {
+    color: var(--white) !important;
+    font-size: 1.2rem;
+    font-weight: 400;
+    transition: .3s;
+    &:hover {
+        color: var(--blob-color-2) !important;
+    }
+    &:active {
+        color: var(--blob-color-1) !important;
+    }
+}
+
+
+.dropdown-menu {
+    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, .5) !important;
+}
+
+.dropdown-menu .dropdown-item {
+    font-weight: 900;
+    transition: .3s;
+    &:hover {
+        color: var(--blob-color-2) !important;
+    }
+}
+
+.dropdown-menu .dropdown-item.active {
+    font-weight: 900;
+    background-color: var(--blob-color-4);
+    transition: .3s;
+    &:hover {
+        color: var(--white) !important;
+    }
+}
+
+.container1,
+.palette-1 {
+    --blob-1: var(--blob-color-3);
+    --blob-2: var(--blob-color-2);
+    --blob-3: var(--blob-color-1);
+    --blob-4: var(--blob-color-4);
+}
+
+.container1 {
+    /* width: 300px !important;  */
+    /* height: 300px !important; */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: background 1000ms ease;
+
+    &::after {
+        position: absolute;
+        content: "";
+        width: 400px;
+        height: 400px;
+        background: var(--bg-0);
+        border-radius: 50%;
+        filter: blur(10rem);
+
+        transition: background 500ms ease;
+    }
+}
+
+.sphere {
+    position: absolute;
+    z-index: -1;
+    opacity: 0.75;
+    width: 400px !important;
+    height: 400px !important;
+    filter: drop-shadow();
+}
+
+.blobs {
+    --shape-1: "M 100 600 q 0 -500, 500 -500 t 500 500 t -500 500 T 100 600 z";
+    --shape-2: "M 100 600 q -50 -400, 500 -500 t 450 550 t -500 500 T 100 600 z";
+    --shape-3: "M 100 600 q 0 -400, 500 -500 t 400 500 t -500 500 T 100 600 z";
+    --shape-4: "M 150 600 q 0 -600, 500 -500 t 500 550 t -500 500 T 150 600 z";
+    --shape-5: "M 150 600 q 0 -600, 500 -500 t 500 550 t -500 500 T 150 600 z";
+    --shape-6: "M 100 600 q 100 -600, 500 -500 t 400 500 t -500 500 T 100 600 z";
+    width: 400px !important;
+    height: 400px !important;
+    max-height: 500px !important;
+    max-width: 500px !important;
+}
+
+svg {
+    position: relative;
+    height: 100%;
+    z-index: 2;
+}
+
+.blob {
+    animation: rotate 25s infinite alternate ease-in-out;
+    transform-origin: 50% 50%;
+    opacity: 0.7;
+}
+
+.blob path {
+    animation: blob-anim-1 5s infinite alternate cubic-bezier(0.45, 0.2, 0.55, 0.8);
+    transform-origin: 50% 50%;
+    transform: scale(0.8);
+    transition: fill 800ms ease;
+}
+
+.blob.alt {
+    animation-direction: alternate-reverse;
+    opacity: 0.3;
+}
+
+.blob-1 path {
+    fill: var(--blob-1);
+    filter: blur(1rem);
+    scale: 0.7;
+}
+
+.blob-2 {
+    animation-duration: 18s;
+    animation-direction: alternate-reverse;
+}
+
+.blob-2 path {
+    fill: var(--blob-2);
+    animation-name: blob-anim-2;
+    animation-duration: 7s;
+    filter: blur(0.75rem);
+    transform: scale(0.78);
+}
+
+.blob-2.alt {
+    animation-direction: alternate;
+}
+
+.blob-3 {
+    animation-duration: 19s;
+}
+
+.blob-3 path {
+    fill: var(--blob-3);
+    animation-name: blob-anim-3;
+    animation-duration: 6s;
+    filter: blur(0.5rem);
+    transform: scale(0.76);
+}
+
+.blob-4 {
+    animation-duration: 28s;
+    animation-direction: alternate-reverse;
+    opacity: 0.9;
+}
+
+.blob-4 path {
+    fill: var(--blob-4);
+    animation-name: blob-anim-4;
+    animation-duration: 10s;
+    filter: blur(10rem);
+    transform: scale(0.5);
+}
+
+.blob-4.alt {
+    animation-direction: alternate;
+    opacity: 0.8;
+}
+
+@keyframes blob-anim-1 {
+    0% {
+        clip-path: path(var(--shape-1));
+    }
+    30% {
+        clip-path: path(var(--shape-2));
+    }
+    70% {
+        clip-path: path(var(--shape-3));
+    }
+    100% {
+        clip-path: path(var(--shape-4));
+    }
+}
+
+@keyframes blob-anim-2 {
+    0% {
+        clip-path: path(var(--shape-3));
+    }
+    40% {
+        clip-path: path(var(--shape-5));
+    }
+    80% {
+        clip-path: path(var(--shape-2));
+    }
+    100% {
+        clip-path: path(var(--shape-6));
+    }
+}
+
+@keyframes blob-anim-3 {
+    0% {
+        clip-path: path(var(--shape-2));
+    }
+    35% {
+        clip-path: path(var(--shape-4));
+    }
+    75% {
+        clip-path: path(var(--shape-6));
+    }
+    100% {
+        clip-path: path(var(--shape-3));
+    }
+}
+
+@keyframes blob-anim-4 {
+    0% {
+        clip-path: path(var(--shape-4));
+    }
+    30% {
+        clip-path: path(var(--shape-6));
+    }
+    70% {
+        clip-path: path(var(--shape-2));
+    }
+    100% {
+        clip-path: path(var(--shape-5));
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.hero h1 {
+    user-select: none;
+}
+
+.hero p {
+    user-select: none;
+    color: var(--white) !important;  
+}
+
+.col-12, .col-lg-6 {
+    display: grid;
+    place-self: center;
+    overflow-x: hidden !important;
+}
+
+.row {
+    overflow: hidden !important;
+}
