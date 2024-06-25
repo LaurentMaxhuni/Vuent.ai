@@ -22,9 +22,9 @@
 body {
     background: linear-gradient(
         -45deg, 
-        #FF642C 0%,
-        #9F1DFF 44%, 
-        #3558FF 88%
+        /* var(--color-3) 0%, */
+        var(--color-2) 33%, 
+        var(--color-1) 100%
     ) !important;
     font-family: 'Noto Sans Anatolian Hieroglyphs';
     font-weight: 400;
@@ -279,11 +279,7 @@ svg {
     color: var(--white) !important;  
 }
 
-.overview .overview-item {
-    font-size: 2rem;
-    border-radius: 25px;
-    width: 100%;
-    padding: 1rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-} 
+.col-12 {
+    display: grid;
+    place-self: center;
+}
