@@ -269,6 +269,10 @@ svg {
     }
 }
 
+.hero h1 {
+    user-select: none;
+}
+
 .hero p {
     user-select: none;
     color: var(--white) !important;  
@@ -277,5 +281,9 @@ svg {
 .col-12, .col-lg-6 {
     display: grid;
     place-self: center;
+    overflow-x: hidden !important;
+}
+
+.row {
     overflow-x: hidden !important;
 }
