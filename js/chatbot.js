@@ -22,7 +22,7 @@ async function getResponse(userMessage) {
         },
         body: JSON.stringify({
             model: 'mixtral-8x7b-32768',
-            messages: [{ role: 'system', content: 'Only answer the last question the user asks. When the first message is sent dont tell the user that the message was cut off that was intentional on the server side. No notes the user shouldnt know there is a chat history. And reply with only your response and dont add any prefixes. Try to respond with emojis sometimes. ALWAYS FORMAT THE RESPONSE TO ITS CORRESPONDING TYPE.' }, { role: 'user', content: userMessage }],
+            messages: [{ role: 'system', content: 'Only answer the last question the user asks. When the first message is sent dont tell the user that the message was cut off that was intentional on the server side. No notes the user shouldnt know there is a chat history. And reply with only your response and dont add any prefixes. Try to respond with emojis sometimes.' }, { role: 'user', content: userMessage }],
             temperature: 1,
             top_p: 1,
             stream: false,
@@ -34,13 +34,40 @@ async function getResponse(userMessage) {
         .then(data => {
             let aiResponse = data.choices[0].message.content;
             var regex = /```([\s\S]*?)```/g;
-            aiResponse = aiResponse.replace(regex, function (match, p1) {
-                p1 = p1.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-                return '<pre><code>' + p1 + '</code></pre>';
-            });
-            aiResponseMessage.innerHTML = aiResponse;
+                        aiResponse = aiResponse.replace(regex, function (match, p1) {
+                            p1 = p1.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                            return '<pre><code>' + p1 + '</code></pre>';
+                        });
+            function typeEffect(element, text, speed) {
+                element.textContent = "";
+                const typingCursor = document.createElement("span");
+                typingCursor.classList.add("typing-cursor");
+                element.appendChild(typingCursor);
+
+                let i = 0;
+                function type() {
+                    if (i < text.length) {
+                        element.innerHTML = text.substring(0, i + 1);
+                        i++;
+                        setTimeout(type, speed);
+                        chatBox.scrollTop = chatBox.scrollHeight;
+                    } else {
+                        element.removeChild(typingCursor);
+                    }
+                }
+                type();
+            }
+
+            // Usage
+            let speed = 5;
+            if(aiResponse.length > 250) {
+                speed = 15;
+            } else if (aiResponse.length > 100) {
+                speed = 7;
+            }
+            const text = aiResponse;
+            typeEffect(aiResponseMessage, text, speed);
             chatHistory += ' Assistant: ' + aiResponseMessage.innerHTML;
-            chatBox.scrollTop = chatBox.scrollHeight;
         })
         .catch(() => {
             aiResponseMessage.innerHTML = 'Oops! Something went wrong. Try again later!';
