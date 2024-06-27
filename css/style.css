@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Alexandria:700|Noto%20Sans%20Anatolian%20Hieroglyphs:400');
 
 :root {
+    scrollbar-color: transparent;
     --color-1: #3558FF;
     --color-2: #9F1DFF;
     --color-3: #FF642C;
@@ -14,14 +15,23 @@
     --black: #1f1f1f;
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+    background: var(--color-2);
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
 ::-webkit-scrollbar-thumb {
+    background: var(--white);
+    -webkit-box-shadow: none;
     border-radius: 10px;
-    color: var(--white) !important;
 }
 
 body {
     background: linear-gradient(269deg,
-            /* var(--color-3) 0%, */
             var(--color-2) 33%, var(--color-1) 100%) !important;
     font-family: 'Noto Sans Anatolian Hieroglyphs';
     font-weight: 400;
@@ -358,5 +368,19 @@ svg {
         cursor: pointer;
         background-color: rgba(0, 0, 0, 0.1);
         color: var(--white);
+    }
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border: 2px solid var(--white) !important;
+    backdrop-filter: blur(15px);
+    border-radius: 8px !important;
+    padding: 24px 48px;
+    transition: .3s;
+    /* height: 300px; */
+    &:hover {
+        transform: translateY(-10px);
+        background-color: rgba(255, 255, 255, 0.3) !important;
     }
 }
