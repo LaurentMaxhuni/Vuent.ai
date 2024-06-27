@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Alexandria:700|Noto%20Sans%20Anatolian%20Hieroglyphs:400');
 
 :root {
-    --color-1:#3558FF;
-    --color-2:#9F1DFF;
-    --color-3:#FF642C;
+    --color-1: #3558FF;
+    --color-2: #9F1DFF;
+    --color-3: #FF642C;
 
     --blob-color-1: #8095ff;
     --blob-color-2: #a6b5ff;
     --blob-color-3: #ffa987;
-    --blob-color-4:  #ff8f95;
+    --blob-color-4: #ff8f95;
 
     --white: #fff5f5;
     --black: #1f1f1f;
@@ -20,7 +20,9 @@
 }
 
 body {
-    background: linear-gradient(269deg, /* var(--color-3) 0%, */ var(--color-2) 33%, var(--color-1) 100%) !important;
+    background: linear-gradient(269deg,
+            /* var(--color-3) 0%, */
+            var(--color-2) 33%, var(--color-1) 100%) !important;
     font-family: 'Noto Sans Anatolian Hieroglyphs';
     font-weight: 400;
 }
@@ -59,9 +61,11 @@ li {
     font-size: 1.2rem;
     font-weight: 400;
     transition: .3s;
+
     &:hover {
         color: var(--blob-color-2) !important;
     }
+
     &:active {
         color: var(--blob-color-1) !important;
     }
@@ -76,6 +80,7 @@ li {
 .dropdown-menu .dropdown-item {
     font-weight: 900;
     transition: .3s;
+
     &:hover {
         color: var(--blob-color-2) !important;
     }
@@ -85,6 +90,7 @@ li {
     font-weight: 900;
     background-color: var(--blob-color-4);
     transition: .3s;
+
     &:hover {
         color: var(--white) !important;
     }
@@ -225,12 +231,15 @@ svg {
     0% {
         clip-path: path(var(--shape-1));
     }
+
     30% {
         clip-path: path(var(--shape-2));
     }
+
     70% {
         clip-path: path(var(--shape-3));
     }
+
     100% {
         clip-path: path(var(--shape-4));
     }
@@ -240,12 +249,15 @@ svg {
     0% {
         clip-path: path(var(--shape-3));
     }
+
     40% {
         clip-path: path(var(--shape-5));
     }
+
     80% {
         clip-path: path(var(--shape-2));
     }
+
     100% {
         clip-path: path(var(--shape-6));
     }
@@ -255,12 +267,15 @@ svg {
     0% {
         clip-path: path(var(--shape-2));
     }
+
     35% {
         clip-path: path(var(--shape-4));
     }
+
     75% {
         clip-path: path(var(--shape-6));
     }
+
     100% {
         clip-path: path(var(--shape-3));
     }
@@ -270,12 +285,15 @@ svg {
     0% {
         clip-path: path(var(--shape-4));
     }
+
     30% {
         clip-path: path(var(--shape-6));
     }
+
     70% {
         clip-path: path(var(--shape-2));
     }
+
     100% {
         clip-path: path(var(--shape-5));
     }
@@ -285,6 +303,7 @@ svg {
     from {
         transform: rotate(0deg);
     }
+
     to {
         transform: rotate(360deg);
     }
@@ -296,10 +315,11 @@ svg {
 
 .hero p {
     user-select: none;
-    color: var(--white) !important;  
+    color: var(--white) !important;
 }
 
-.col-12, .col-lg-6 {
+.col-12,
+.col-lg-6 {
     display: grid;
     place-self: center;
     overflow-x: hidden !important;
@@ -307,4 +327,36 @@ svg {
 
 .row {
     overflow: hidden !important;
+}
+
+.button-full {
+    background-color: var(--white) !important;
+    color: var(--color-2) !important;
+    mix-blend-mode: screen;
+    border: 2px solid var(--white);
+    border-radius: 8px;
+    padding: 8px 16px;
+    transition: .3s;
+    &:hover {
+        cursor: pointer;
+        background-color: color-mix(in srgb, var(--white) 90%, var(--black) 10%) !important;
+        color: var(--color-2) !important;
+        border-color: color-mix(in srgb, var(--white) 90%, var(--black) 10%);
+    }
+}
+
+.button-outline {
+    background-color: transparent;
+    color: var(--white);
+    backdrop-filter: blur(15px);
+    border: 2px solid var(--white);
+    border-radius: 8px;
+    padding: 8px 16px;
+    transition: .3s;
+
+    &:hover {
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.1);
+        color: var(--white);
+    }
 }
