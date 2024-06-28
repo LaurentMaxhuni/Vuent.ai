@@ -73,6 +73,18 @@ function toAboutSection() {
     document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
 }
 
+function toChatBot() {
+    window.location.href = '/html/chatbot.html';
+}
+
+function toCode() {
+    window.location.href = '/html/code.html';
+}
+
+function toDesigner() {
+    window.location.href = '/html/designer.html';
+}
+
 function tryChat() {
     let tryChat = document.getElementById('tryChat');
     tryChat.addEventListener('click', function () {
