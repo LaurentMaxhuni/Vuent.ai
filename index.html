@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vuent.ai | The Best Ai Companition</title>
+    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
     <!-- Tailwind CSS Links -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -20,6 +21,8 @@
         href='https://cdn-uicons.flaticon.com/2.4.2/uicons-solid-straight/css/uicons-solid-straight.css'>
     <link rel='stylesheet'
         href='https://cdn-uicons.flaticon.com/2.4.2/uicons-solid-straight/css/uicons-solid-straight.css'>
+    <link rel='stylesheet'
+        href='https://cdn-uicons.flaticon.com/2.4.2/uicons-solid-rounded/css/uicons-solid-rounded.css'>
     <!-- Animate On Scroll Links -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Animate CSS Links -->
@@ -38,24 +41,27 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
+                        <li class="nav-item text-center">
                             <a class="nav-link tw-font-semibold active" href="index.html">Home</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item text-center">
                             <a class="nav-link tw-font-semibold active" href="#">Pricing</a>
                         </li>
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown text-center">
                             <a class="nav-link dropdown-toggle tw-font-semibold" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Services
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="html/chatbot.html">AI Chatbot</a></li>
-                                <li><a class="dropdown-item" href="html/code.html">AI Code</a></li>
+                                <li><a class="dropdown-item text-center text-md-start" href="html/chatbot.html">AI
+                                        Chatbot</a></li>
+                                <li><a class="dropdown-item text-center text-md-start" href="html/code.html">AI Code</a>
+                                </li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="html/designer.html">AI Designer</a></li>
+                                <li><a class="dropdown-item text-center text-md-start" href="html/designer.html">AI
+                                        Designer</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -110,17 +116,42 @@
     <section class="mt-5 py-5 mb-5 overview">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-xl-6 col-lg-6" data-aos="fade-right" data-aos-duration="750">
-                    <h1 class="fs-1">What we do!</h1>
-                    <p class="lead mt-3 mb-3 fs-5">
-                        At <em>Vuent.ai</em>, we harness AI to optimize business processes, drive innovation, and solve
-                        complex challenges across various industries. Our tailored solutions and advanced data analytics
-                        empower you to make informed decisions and achieve operational excellence.
-                    </p>
+                <div class="col-12 col-xl-4 col-lg-4" data-aos="fade-right" data-aos-duration="750">
+                    <div class="card-wwd text-left mt-3 mb-2 text-center text-md-start">
+                        <img src="assets/icon4.svg" alt="" class="img-fluid card-image" width="300">
+                        <h1>AI Chatbot</h1>
+                        <p>Our AI chat bot offers seamless and intelligent conversation experiences for customer
+                            support, personal assistants, and more.</p>
+                        <div class="button-wrapper mb-2">
+                            <button class="button-full" onclick="toChatBot()">Try Chatbot!</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-12 col-xl-6 col-lg-6 tw-flex tw-justify-center" data-aos="fade-left"
-                    data-aos-duration="750">
-                    <img src="assets/icon1.svg" alt="" class="img-fluid" width="475" height="475">
+                <div class="col-12 col-xl-4 col-lg-4" data-aos="fade-up" data-aos-duration="750">
+                    <div class="card-wwd text-left mt-3 mb-2 text-center text-md-start">
+                        <img src="assets/icon3.svg" alt="" class="img-fluid card-image" width="300">
+                        <h1>AI Code</h1>
+                        <p>Get coding assistance and generate code snippets with our advanced AI code
+                            bot, designed to
+                            help developers boost their productivity.
+                        </p>
+                        <div class="button-wrapper mb-2">
+                            <button class="button-full" onclick="toCode()">Try Code!</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-xl-4 col-lg-4" data-aos="fade-left" data-aos-duration="750">
+                    <div class="card-wwd text-left mt-3 mb-2 text-center text-md-start">
+                        <img src="assets/icon5.svg" alt="" class="img-fluid card-image" width="300">
+                        <h1>AI Designer</h1>
+                        <p>Create stunning images and artwork with our AI-powered image generator,
+                            perfect for
+                            designers, marketers, and creatives.
+                        </p>
+                        <div class="button-wrapper mb-2">
+                            <button class="button-full" onclick="toDesigner()">Try Designer!</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -132,7 +163,7 @@
                     <img src="assets/icon2.svg" alt="" class="img-fluid"
                         style="height: 375px !important; width: 475px;">
                 </div>
-                <div class="col-12 col-xl-6 col-lg-6" data-aos="fade-left" data-aos-duration="750">
+                <div class="col-12 col-xl-6 col-lg-6 text-center text-md-start" data-aos="fade-left" data-aos-duration="750">
                     <h1 class="fs-1">Our Mission!</h1>
                     <p class="lead mt-3 mb-3 fs-5">At <em>Vuent.ai</em>, our mission is to revolutionize industries
                         through innovative AI solutions that enhance efficiency, drive growth, and improve quality of
@@ -145,7 +176,7 @@
     <section class="mt-5 py-5 mb-5">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-xl-6 col-lg-6" data-aos="fade-right" data-aos-duration="750">
+                <div class="col-12 col-xl-6 col-lg-6 text-center text-md-start" data-aos="fade-right" data-aos-duration="750">
                     <h1 class="fs-1">Our Sales</h1>
                     <p class="lead mt-3 mb-3 fs-5">The chart on the right illustrates the impressive trajectory of our
                         company's sales and revenue since 2016. This consistent growth is a testament to the
@@ -159,30 +190,20 @@
             </div>
         </div>
     </section>
-    <section class="mt-5 py-5 mb-5">
+    <section class="mt-5 mb-5 py-5">
         <div class="container">
             <div class="row">
-                <h1 class="text-center mb-5">Our Services</h1>
-                <div class="col-12 col-xl-4 col-lg-4" data-aos="fade-right" data-aos-duration="750">
-                    <div class="card text-center d-flex justify-content-center mt-5 mb-5 tw-h-[290px]">
-                        <i class="fi fi-ss-star fs-1 tw-text-white"></i>
-                        <h1>AI Chatbot</h1>
-                        <p>AI Chatbot Companion that is powered by Mistrals Mixtral 8x7B Model.</p>
-                    </div>
+                <div class="col-12 col-xl-6 col-lg-6 mb-4 d-flex justify-content-center" data-aos="fade-right" data-aos-duration="750">
+                    <img src="assets/logo.png" alt="" class="img-fluid tw-rounded-full tw-drop-shadow-md mb-1"
+                        height="400" width="400">
                 </div>
-                <div class="col-12 col-xl-4 col-lg-4" data-aos="fade-up" data-aos-duration="750">
-                    <div class="card text-center d-flex justify-content-center mt-5 mb-5 tw-h-[290px]">
-                        <i class="fi fi-ss-star fs-1 tw-text-white"></i>
-                        <h1>AI Code</h1>
-                        <p>AI Code  that is powered by Meta's Llama-2-70b Model.</p>
-                    </div>
-                </div>
-                <div class="col-12 col-xl-4 col-lg-4" data-aos="fade-left" data-aos-duration="750">
-                    <div class="card text-center d-flex justify-content-center mt-5 mb-5 tw-h-[290px]">
-                        <i class="fi fi-ss-star fs-1 tw-text-white"></i>
-                        <h1>AI Designer</h1>
-                        <p>AI Designer Companion that is powered Runway ML Stable Diffusion Model.</p>
-                    </div>
+                <div class="col-12 col-xl-6 col-lg-6 text-center text-md-start" data-aos="fade-left" data-aos-duration="750">
+                    <h1 class="fs-1">About Us!</h1>
+                    <p class="lead mt-3 mb-3 fs-5">Vuent.ai is dedicated to bringing advanced AI technology to
+                        businesses and individuals in Kosovo.
+                        Based in Vushtrria, we aim to revolutionize the way you interact with AI through our innovative
+                        chat, code, and image generation tools.</p>
+
                 </div>
             </div>
         </div>
@@ -190,23 +211,27 @@
     <section class="mt-5 py-5 mb-5">
         <div class="container">
             <div class="row">
-                <h1 class="text-center mb-5">Our Solutions</h1>
+                <h1 class="text-center mb-5">Our Features</h1>
                 <div class="col-12 col-xl-4 col-lg-4" data-aos="fade-right" data-aos-duration="750">
-                    <div class="card text-center d-flex justify-content-center mt-5 mb-5 py-5">
-                        <i class="fi fi-rr-user-robot fs-1 tw-text-white"></i>
-                        <h4>Studies show that a human is more succesful at a task that is assisted by an AI.</h4>
+                    <div class="card text-center d-flex justify-content-center mt-2 mb-3 tw-h-[290px]">
+                        <i class="fi fi-rr-star fs-1 tw-text-white"></i>
+                        <h1>User-Friendly Interface</h1>
+                        <p>Our tools are designed with simplicity and ease of use in mind, ensuring a smooth experience
+                            for all users.</p>
                     </div>
                 </div>
                 <div class="col-12 col-xl-4 col-lg-4" data-aos="fade-up" data-aos-duration="750">
-                    <div class="card text-center d-flex justify-content-center mt-5 mb-5 py-5">
-                        <i class="fi fi-rr-square-code fs-1 tw-text-white"></i>
-                        <h4>AI Code helps a programmer to complete any task with ease by using this chatbot.</h4>
+                    <div class="card text-center d-flex justify-content-center mt-2 mb-3 tw-h-[290px]">
+                        <i class="fi fi-sr-star fs-1 tw-text-white"></i>
+                        <h1>Advanced Technology</h1>
+                        <p>Leveraging cutting-edge AI algorithms to provide the best performance and accuracy.</p>
                     </div>
                 </div>
                 <div class="col-12 col-xl-4 col-lg-4" data-aos="fade-left" data-aos-duration="750">
-                    <div class="card text-center d-flex justify-content-center mt-5 mb-5 py-5">
-                        <i class="fi fi-rr-palette fs-1 tw-text-white"></i>
-                        <h4>AI Designer which helps generating art and graphics by taking your input.</h4>
+                    <div class="card text-center d-flex justify-content-center mt-2 mb-3 tw-h-[250px]">
+                        <i class="fi fi-rr-star fs-1 tw-text-white"></i>
+                        <h1>Custom Solutions</h1>
+                        <p> We offer tailor-made AI solutions to meet your specific needs and requirements.</p>
                     </div>
                 </div>
             </div>
@@ -216,17 +241,80 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-xl-6 col-lg-6">
-                    <img src="" alt="">
+                    <img src="assets/icon6.svg" alt="" class="img-fluid" width="500">
                 </div>
                 <div class="col-12 col-xl-6 col-lg-6">
-                    <h1>About Us!</h1>
-                    <p class="lead">
-                        
-                    </p>
+                    <h1>Contact Us</h1>
+                    <form id="contact-form">
+                        <div class="row">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text"><i class="fi fi-rr-at"></i></span>
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="floatingInputGroup1" placeholder="Email">
+                                    <label for="floatingInputGroup1">Email</label>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 col-xl-6">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text"><i class="fi fi-rr-phone-call"></i></span>
+                                    <div class="form-floating">
+                                        <input type="tel" class="form-control" id="floatingInputGroup1"
+                                            placeholder="Phone">
+                                        <label for="floatingInputGroup1">Phone</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 col-xl-6">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text"><i class="fi fi-rr-marker"></i></span>
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="floatingInputGroup1"
+                                            placeholder="City">
+                                        <label for="floatingInputGroup1">City</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text"><i class="fi fi-rr-comment-alt"></i></span>
+                                <div class="form-floating">
+                                    <textarea class="form-control" id="floatingInputGroup1" placeholder="Comment"></textarea>
+                                    <label for="floatingInputGroup1">Comment</label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
+    <footer class="mt-5 mb-5 py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-xl-6 col-lg-6">
+                    <p>Copyright © 2023 Vuent.ai. All rights reserved.</p>
+                    <p>Made with ❤️ in Vushtrria</p>
+                    <p>Powered by Vuent.ai</p>
+                    <p>Version 1.0.0</p>
+                </div>
+                <div class="col-12 col-xl-6 col-lg-6">
+                    <p>Vuent.ai is a registered trademark of Vushtrria</p>
+                    <p>Owner Links:</p>
+                    <div class="links-wrapper">
+                        <a href="https://instagram.com/laurent_maxhuni34" referrerpolicy="no-referrer" target="_blank" class="tw-text-md button-outline d-block text-center">
+                            <i class="fi fi-brands-instagram tw-text-sm"></i> Laurent Maxhuni
+                        </a>
+                        <a href="https://discordapp.com/users/1200518665188167786" referrerpolicy="no-referrer" target="_blank" class="tw-text-md button-outline d-block text-center">
+                            <i class="fi fi-brands-discord tw-text-sm"></i> Laurent Maxhuni
+                        </a>
+                        <a href="https://www.linkedin.com/in/laurent-maxhuni-56a394304" referrerpolicy="no-referrer" target="_blank" class="tw-text-md button-outline d-block text-center">
+                            <i class="fi fi-brands-linkedin tw-text-sm"></i> Laurent Maxhuni
+                        </a>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </footer>
+    
     <script>
         tailwind.config = {
             prefix: "tw-",
