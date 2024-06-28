@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Alexandria:700|Noto%20Sans%20Anatolian%20Hieroglyphs:400');
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&family=Noto+Sans+Anatolian+Hieroglyphs&display=swap');
 
 :root {
     scrollbar-color: transparent;
@@ -129,12 +129,17 @@ h2,
 h3,
 h4,
 h5,
-p,
 a,
 li {
     color: var(--white) !important;
     font-family: 'Alexandria';
-    font-weight: 700;
+    font-weight: 800 !important;
+}
+
+p {
+    color: var(--white) !important;
+    font-family: 'Noto Sans Anatolian Hieroglyphs';
+    font-weight: 400;
 }
 
 
@@ -435,4 +440,65 @@ svg {
 
 .row {
     overflow: hidden;
+}
+
+.button-full {
+    background-color: var(--white) !important;
+    color: var(--color-2) !important;
+    mix-blend-mode: screen;
+    border: 2px solid var(--white);
+    border-radius: 8px;
+    padding: 8px 16px;
+    transition: .3s;
+    margin-right: 20px;
+    &:hover {
+        cursor: pointer;
+        background-color: color-mix(in srgb, var(--white) 85%, var(--black) 15%) !important;
+        color: var(--black) !important;
+        border-color: color-mix(in srgb, var(--white) 85%, var(--black) 15%);
+    }
+}
+
+.button-outline {
+    background-color: transparent;
+    color: var(--white);
+    backdrop-filter: blur(15px);
+    border: 2px solid var(--white);
+    border-radius: 8px;
+    padding: 8px 16px;
+    transition: .3s;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    &:hover {
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.1);
+        color: var(--white);
+    }
+}
+
+.button-outline i {
+    font-size: 16px;
+    display: grid;
+    place-self: center;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border: 2px solid var(--white) !important;
+    border-radius: 8px !important;
+    padding: 24px 48px;
+    transition: .3s;
+    position: relative;
+    height: 400px !important;
+    &:hover {
+        transform: translateY(-10px);
+        background-color: rgba(255, 255, 255, 0.3) !important;
+    }
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.1) !important;
 }

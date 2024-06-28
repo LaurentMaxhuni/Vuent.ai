@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Alexandria:700|Noto%20Sans%20Anatolian%20Hieroglyphs:400');
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&family=Noto+Sans+Anatolian+Hieroglyphs&display=swap');
 
 :root {
     scrollbar-color: transparent;
@@ -129,12 +129,17 @@ h2,
 h3,
 h4,
 h5,
-p,
 a,
 li {
     color: var(--white) !important;
     font-family: 'Alexandria';
-    font-weight: 700;
+    font-weight: 800 !important;
+}
+
+p {
+    color: var(--white) !important;
+    font-family: 'Noto Sans Anatolian Hieroglyphs';
+    font-weight: 400;
 }
 
 
