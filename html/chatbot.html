@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vuent.ai | The Best Ai Companition</title>
-    <link rel="stylesheet" href="../css/chatbot.css">
+    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
     <!-- Tailwind CSS Links -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Bootstrap Links -->
@@ -13,11 +14,15 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <!-- Uicons Links -->
     <link rel="stylesheet"
-        href="https://cdn-uicons.flaticon.com/2.4.0/uicons-regular-rounded/css/uicons-regular-rounded.css">
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.0/uicons-brands/css/uicons-brands.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+        href="https://cdn-uicons.flaticon.com/2.4.2/uicons-regular-rounded/css/uicons-regular-rounded.css">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.2/uicons-brands/css/uicons-brands.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.2/uicons-bold-rounded/css/uicons-bold-rounded.css'>
     <link rel='stylesheet'
         href='https://cdn-uicons.flaticon.com/2.4.2/uicons-solid-straight/css/uicons-solid-straight.css'>
+    <link rel='stylesheet'
+        href='https://cdn-uicons.flaticon.com/2.4.2/uicons-solid-straight/css/uicons-solid-straight.css'>
+    <link rel='stylesheet'
+        href='https://cdn-uicons.flaticon.com/2.4.2/uicons-solid-rounded/css/uicons-solid-rounded.css'>
     <!-- Animate On Scroll Links -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Animate CSS Links -->
@@ -37,10 +42,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item text-center">
-                            <a class="nav-link tw-font-semibold active" href="../index.html">Home</a>
+                            <a class="nav-link tw-font-semibold active" href="index.html">Home</a>
                         </li>
                         <li class="nav-item text-center">
-                            <a class="nav-link tw-font-semibold active" href="../html/pricing.html">Pricing</a>
+                            <a class="nav-link tw-font-semibold active" href="#">Pricing</a>
                         </li>
                         <li class="nav-item dropdown text-center">
                             <a class="nav-link dropdown-toggle tw-font-semibold" href="#" role="button"
@@ -48,12 +53,15 @@
                                 Services
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item text-center" href="../html/chatbot.html">AI Chatbot</a></li>
-                                <li><a class="dropdown-item text-center" href="../html/code.html">AI Code</a></li>
+                                <li><a class="dropdown-item text-center text-md-start" href="html/chatbot.html">AI
+                                        Chatbot</a></li>
+                                <li><a class="dropdown-item text-center text-md-start" href="html/code.html">AI Code</a>
+                                </li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item text-center" href="../html/designer.html">AI Designer</a></li>
+                                <li><a class="dropdown-item text-center text-md-start" href="html/designer.html">AI
+                                        Designer</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -61,28 +69,7 @@
             </div>
         </nav>
     </header>
-    <section class="mt-5 py-5 mb-5">
-        <div class="container">
-            <div class="row">
-                <div class="chatbot">
-                    <div class="chatbot-header text-center">
-                        <h1>Vuent.ai</h1>
-                        <p>Your best AI Companion</p>
-                    </div>
-                    <div class="chatbot-messsages" id="displayMessages">
 
-                    </div>
-                    <div class="chatbot-footer">
-                        <div class="wrapper">
-                            <input type="text" id="userInput" placeholder="Enter your message..." class="user-input navbar-expand-lg">
-                            <button class="send-button" id="sendButton"><i
-                                    class="fi fi-rr-paper-plane-launch"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
     <script>
         tailwind.config = {
             prefix: "tw-",
