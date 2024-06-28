@@ -99,3 +99,129 @@ function tryChat() {
         }
     })
 }
+
+(function () {
+    // https://dashboard.emailjs.com/admin/account
+    emailjs.init({
+        publicKey: "6zq8gAMpoJWnicWiv",
+    });
+})();
+
+var email = document.getElementById('email');
+var phone = document.getElementById('phone');
+var city = document.getElementById('city');
+var comment = document.getElementById('comment');
+
+comment.addEventListener('input', function () {
+    this.style.height = 'auto';
+    this.style.height = this.scrollHeight + 'px';
+});
+
+window.onload = function () {
+    document.getElementById('contact-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        var errorMessage = '';
+
+        if(!email.value) {
+            errorMessage += 'Email is required! \n';
+            validationCheck(errorMessage);
+            email.style.borderColor = '#eb2d3a';
+            email.addEventListener('input', function() {
+                email.style.borderColor = '#dee2e6';
+            })
+        }
+
+        if(!phone.value) {
+            errorMessage += 'Phone is required! \n';
+            validationCheck(errorMessage);
+            phone.style.borderColor = '#eb2d3a';
+            phone.addEventListener('input', function() {
+                phone.style.borderColor = '#dee2e6';
+            })
+        }
+
+        if(!city.value) {
+            errorMessage += 'City is required! \n';
+            validationCheck(errorMessage);
+            city.style.borderColor = '#eb2d3a';
+            city.addEventListener('input', function() {
+                city.style.borderColor = '#dee2e6';
+            })
+        }
+
+        if(!comment.value) {
+            errorMessage += 'Comment is required!';
+            validationCheck(errorMessage);
+            comment.style.borderColor = '#eb2d3a';
+            comment.addEventListener('input', function() {
+                comment.style.borderColor = '#dee2e6';
+            })
+        }
+
+        if(email.value && phone.value && city.value && comment.value) {
+            const serviceID = 'service_5kvl66q';
+            const templateID = 'template_qd20eyg';
+            emailjs.sendForm(serviceID, templateID, this)
+                .then(() => {
+                    email.value = '';
+                    phone.value = '';
+                    city.value = '';
+                    comment.value = '';
+                    Swal.fire({
+                        title: "Success!",
+                        customClass: {
+                            title: 'black'
+                        },
+                        text: "Do you want to continue",
+                        icon: 'success',
+                        iconColor: '#FF642C',
+                        color: 'black',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#FF642C',
+                        timer: 5000,
+                        timerProgressBar: true
+                    })
+                }, (error) => {
+                    console.log('FAILED...', error);
+                    Swal.fire({
+                        title: "Error!",
+                        text: "Do you want to continue",
+                        icon: 'error',
+                        iconColor: 'black',
+                        color: 'black',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: 'black',
+                        timer: 5000,
+                        timerProgressBar: true
+                    })
+                });
+        }
+
+        function validationCheck(error) {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "bottom-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                color: 'black',
+                iconColor: '#FF642C',
+                customClass: {
+                    title: 'black',
+                },
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+            });
+            Toast.fire({
+                icon: "error",
+                iconColor: '#FF642C',
+                color: 'black',
+                title: error
+            });
+        }
+
+        });
+};
