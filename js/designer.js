@@ -1,19 +1,19 @@
 const token = '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';
-const userInput = document.getElementById('userInput');
-const button = document.getElementById('generateButton');
+var userInput = document.getElementById('userInput');
+var button = document.getElementById('generateButton');
 var userHistory = '';
 
 async function query(input) {
     try {
         const response = await fetch(
-            "https://api-inference.huggingface.co/models/runwayml/stable-diffusion-v1-5",
+            "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0",
             {
                 headers: {
                     'Authorization': `Bearer ${token}`,
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
                 },
                 method: "POST",
-                body: JSON.stringify({ inputs: input }),
+                body: JSON.stringify({ inputs: input + ' prompy' }),
             }
         );
 
@@ -36,33 +36,49 @@ async function query(input) {
 }
 
 button.addEventListener('click', () => {
-    document.getElementById(`image-1`).src = '../assets/loading.gif';
+    document.getElementById(`generated-image`).src = '../assets/loading.gif';
     var input = userInput.value;
     var counter = 0;
     userHistory += `User: ${input} (Prompt ${counter})`;
-    debugger;
+    if(counter == 3) {
+        userHistory = null;
+    }
     query(userHistory).then((response) => {
         counter++;
+        URL.revokeObjectURL(response);
         var objectURL = URL.createObjectURL(response);
         objectURL.toString();
-        document.getElementById(`image-1`).src = objectURL;
+        document.getElementById(`generated-image`).src = objectURL;
+        setTimeout(function() {
+            delete window.Blob
+            window.URL.revokeObjectURL(objectURL);
+        }, 1000)
         userInput.value = '';
     })
 }
 );
 
-userInput.addEventListener('keypress', async (event) => {
+var counter = 0;
+
+userInput.addEventListener('keypress', (event) => {
     if (event.key == 'Enter') {
-        document.getElementById(`image-1`).src = '../assets/loading.gif';
-        var input = userInput.value;
-        var counter = 0;
-        userHistory += `User: ${input} (Prompt ${counter})`;
+        document.getElementById(`generated-image`).src = '../assets/loading.gif';
         debugger;
+        var input = userInput.value;
+        userHistory += `User: ${input} (Prompt ${counter})`;
+        if(counter == 3) {
+            counter = 0;
+        }
         query(userHistory).then((response) => {
             counter++;
+            URL.revokeObjectURL(response);
             var objectURL = URL.createObjectURL(response);
             objectURL.toString();
-            document.getElementById(`generated-image`).style.backgroundImage = `url(${objectURL})`;
+            document.getElementById(`generated-image`).src = objectURL;
+            setTimeout(function() {
+                delete window.Blob
+                window.URL.revokeObjectURL(objectURL);
+            }, 1000)
             userInput.value = '';
         })
     }

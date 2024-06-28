@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vuent.ai | The Best Ai Companition</title>
+    <link rel="shortcut icon" href="../assets/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/deigner.css">
     <!-- Tailwind CSS Links -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -13,9 +14,9 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <!-- Uicons Links -->
     <link rel="stylesheet"
-        href="https://cdn-uicons.flaticon.com/2.3.0/uicons-regular-rounded/css/uicons-regular-rounded.css">
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.3.0/uicons-brands/css/uicons-brands.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.3.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+        href="https://cdn-uicons.flaticon.com/2.4.2/uicons-regular-rounded/css/uicons-regular-rounded.css">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.2/uicons-brands/css/uicons-brands.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.2/uicons-bold-rounded/css/uicons-bold-rounded.css'>
     <link rel='stylesheet'
         href='https://cdn-uicons.flaticon.com/2.4.2/uicons-solid-straight/css/uicons-solid-straight.css'>
     <!-- Animate On Scroll Links -->
@@ -66,10 +67,10 @@
             <div class="row">
                 <div class="designer">
                     <div class="designer-header text-center">
-                        <h1>Vuent.ai (Code Edition)</h1>
-                        <p>Your best AI Companion for Coding Assistance</p>
+                        <h1>Vuent.ai (Designer Edition)</h1>
+                        <p>Your best AI Companion for Image Generation Assistance</p>
                     </div>
-                    <div class="designer-images" id="displayImaged">
+                    <div class="designer-images" id="displayImages">
                         <div class="sphere img-fluid">
                             <div class="container1 palette-1">
                                 <div class="blobs">
@@ -102,12 +103,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="generated-iamge" id="generated-iamge"></div>
+                        <!-- <div class="generated-image" id="generated-image"></div> -->
+                        <img src="" alt="" id="generated-image" class="img-fluid generated-image">
                     </div>
                     <div class="designer-footer">
                         <div class="wrapper">
-                            <input type="text" id="userInput" placeholder="Enter your message..." class="user-input navbar-expand-lg">
-                            <button class="send-button" id="sendButton"><i
+                            <input type="text" id="userInput" placeholder="Enter your message..."
+                                class="user-input navbar-expand-lg">
+                            <button class="send-button" id="generateButton"><i
                                     class="fi fi-rr-paper-plane-launch"></i></button>
                         </div>
                     </div>
