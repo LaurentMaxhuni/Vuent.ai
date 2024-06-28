@@ -1,0 +1,430 @@
+@import url('https://fonts.googleapis.com/css?family=Alexandria:700|Noto%20Sans%20Anatolian%20Hieroglyphs:400');
+
+:root {
+    scrollbar-color: transparent;
+    --color-1: #3558FF;
+    --color-2: #9F1DFF;
+    --color-3: #FF642C;
+
+    --blob-color-1: #8095ff;
+    --blob-color-2: #a6b5ff;
+    --blob-color-3: #ffa987;
+    --blob-color-4: #ff8f95;
+
+    --white: #fff5f5;
+    --hover-nav-gray: #dcdcdc;
+    --active-nav-gray: #bbbbbb;
+    --black: #1f1f1f;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    background: var(--color-2);
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--white);
+    -webkit-box-shadow: none;
+    border-radius: 10px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*:focus-visible {
+    outline: none;
+    box-shadow: none !important;
+}
+
+html {
+    height: 100%;
+    scroll-behavior: smooth;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    width: 100%;
+    background: linear-gradient(269deg,
+            var(--color-2) 33%, var(--color-1) 100%);
+    font-family: 'Noto Sans Anatolian Hieroglyphs';
+    font-weight: 400;
+}
+
+nav {
+    top: 10px !important;
+    border-radius: 15px;
+    left: 10px !important;
+    right: 10px !important;
+    background: rgba(255, 255, 255, .2) !important;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-toggler {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.navbar-toggler-icon {
+    background-image: none !important;
+    background-color: var(--white);
+    height: 3px !important;
+    width: 25px;
+    margin: 10px 0;
+    position: relative;
+    transition: all 0.35s ease-out;
+    transform-origin: center;
+}
+
+.navbar-toggler-icon::before {
+    display: block;
+    background-color: var(--white);
+    height: 3px;
+    content: "";
+    position: relative;
+    top: -7px;
+    transition: all 0.15s ease-out;
+    transform-origin: center;
+}
+
+.navbar-toggler-icon::after {
+    display: block;
+    background-color: var(--white);
+    height: 3.5px;
+    content: "";
+    position: relative;
+    top: 4px;
+    transition: all 0.35s ease-out;
+    transform-origin: center;
+}
+
+.navbar-dark .navbar-toggler-icon,
+.navbar-dark .navbar-toggler-icon::before,
+.navbar-dark .navbar-toggler-icon::after {
+    background-color: var(--black);
+}
+
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon {
+    transform: rotate(45deg);
+}
+
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon::before {
+    opacity: 0;
+}
+
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon::after {
+    transform: rotate(-90deg) translateX(7px);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+a,
+li {
+    color: var(--white) !important;
+    font-family: 'Alexandria';
+    font-weight: 700;
+}
+
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-link {
+    color: var(--white) !important;
+    font-size: 1.2rem;
+    font-weight: 400;
+    transition: .3s;
+
+    &:hover {
+        color: var(--hover-nav-gray) !important;
+    }
+
+    &:active {
+        color: var(--active-nav-gray) !important;
+    }
+}
+
+
+.dropdown-menu {
+    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, .2) !important;
+}
+
+.dropdown-menu .dropdown-item {
+    font-weight: 900;
+    transition: .3s;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.2) !important;
+    }
+
+    &:active {
+        background-color: rgba(255, 255, 255, 0.4) !important;
+    }
+}
+
+.dropdown-menu .dropdown-item.active {
+    font-weight: 900;
+    background-color: var(--hover-nav-gray);
+    transition: .3s;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.2) !important;
+    }
+
+    &:active {
+        background-color: rgba(255, 255, 255, 0.4) !important;
+    }
+}
+
+.container1,
+.palette-1 {
+    --blob-1: var(--blob-color-3);
+    --blob-2: var(--blob-color-2);
+    --blob-3: var(--blob-color-1);
+    --blob-4: var(--blob-color-4);
+}
+
+.container1 {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: background 1000ms ease;
+
+    &::after {
+        position: absolute;
+        content: "";
+        width: 400px;
+        height: 400px;
+        background: var(--bg-0);
+        border-radius: 50%;
+        filter: blur(10rem);
+
+        transition: background 500ms ease;
+    }
+}
+
+.sphere {
+    position: absolute;
+    z-index: -1;
+    opacity: 0.75;
+    width: 400px;
+    height: 400px;
+}
+
+@media screen and (max-width: 426px) {
+    .sphere {
+        width: 200px;
+        height: 200px;
+    }
+
+    .blobs {
+        width: 200px;
+        height: 200px;
+        max-width: none;
+        max-height: none;
+    }
+}
+
+.blobs {
+    --shape-1: "M 100 600 q 0 -500, 500 -500 t 500 500 t -500 500 T 100 600 z";
+    --shape-2: "M 100 600 q -50 -400, 500 -500 t 450 550 t -500 500 T 100 600 z";
+    --shape-3: "M 100 600 q 0 -400, 500 -500 t 400 500 t -500 500 T 100 600 z";
+    --shape-4: "M 150 600 q 0 -600, 500 -500 t 500 550 t -500 500 T 150 600 z";
+    --shape-5: "M 150 600 q 0 -600, 500 -500 t 500 550 t -500 500 T 150 600 z";
+    --shape-6: "M 100 600 q 100 -600, 500 -500 t 400 500 t -500 500 T 100 600 z";
+    width: 400px;
+    height: 400px;
+}
+
+svg {
+    position: relative;
+    height: 100%;
+    z-index: 2;
+}
+
+.blob {
+    animation: rotate 25s infinite alternate ease-in-out;
+    transform-origin: 50% 50%;
+    opacity: 0.7;
+}
+
+.blob path {
+    animation: blob-anim-1 5s infinite alternate cubic-bezier(0.45, 0.2, 0.55, 0.8);
+    transform-origin: 50% 50%;
+    transform: scale(0.8);
+    transition: fill 800ms ease;
+}
+
+.blob.alt {
+    animation-direction: alternate-reverse;
+    opacity: 0.3;
+}
+
+.blob-1 path {
+    fill: var(--blob-1);
+    filter: blur(1rem);
+    scale: 0.7;
+}
+
+.blob-2 {
+    animation-duration: 18s;
+    animation-direction: alternate-reverse;
+}
+
+.blob-2 path {
+    fill: var(--blob-2);
+    animation-name: blob-anim-2;
+    animation-duration: 7s;
+    filter: blur(0.75rem);
+    transform: scale(0.78);
+}
+
+.blob-2.alt {
+    animation-direction: alternate;
+}
+
+.blob-3 {
+    animation-duration: 19s;
+}
+
+.blob-3 path {
+    fill: var(--blob-3);
+    animation-name: blob-anim-3;
+    animation-duration: 6s;
+    filter: blur(0.5rem);
+    transform: scale(0.76);
+}
+
+.blob-4 {
+    animation-duration: 28s;
+    animation-direction: alternate-reverse;
+    opacity: 0.9;
+}
+
+.blob-4 path {
+    fill: var(--blob-4);
+    animation-name: blob-anim-4;
+    animation-duration: 10s;
+    filter: blur(10rem);
+    transform: scale(0.5);
+}
+
+.blob-4.alt {
+    animation-direction: alternate;
+    opacity: 0.8;
+}
+
+@keyframes blob-anim-1 {
+    0% {
+        clip-path: path(var(--shape-1));
+    }
+
+    30% {
+        clip-path: path(var(--shape-2));
+    }
+
+    70% {
+        clip-path: path(var(--shape-3));
+    }
+
+    100% {
+        clip-path: path(var(--shape-4));
+    }
+}
+
+@keyframes blob-anim-2 {
+    0% {
+        clip-path: path(var(--shape-3));
+    }
+
+    40% {
+        clip-path: path(var(--shape-5));
+    }
+
+    80% {
+        clip-path: path(var(--shape-2));
+    }
+
+    100% {
+        clip-path: path(var(--shape-6));
+    }
+}
+
+@keyframes blob-anim-3 {
+    0% {
+        clip-path: path(var(--shape-2));
+    }
+
+    35% {
+        clip-path: path(var(--shape-4));
+    }
+
+    75% {
+        clip-path: path(var(--shape-6));
+    }
+
+    100% {
+        clip-path: path(var(--shape-3));
+    }
+}
+
+@keyframes blob-anim-4 {
+    0% {
+        clip-path: path(var(--shape-4));
+    }
+
+    30% {
+        clip-path: path(var(--shape-6));
+    }
+
+    70% {
+        clip-path: path(var(--shape-2));
+    }
+
+    100% {
+        clip-path: path(var(--shape-5));
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.col-12,
+.col-lg-6,
+.col-xl-6,
+.col-lg-4,
+.col-xl-4 {
+    display: grid;
+    place-self: center;
+    overflow: hidden;
+    padding-right: 0;
+    margin-right: 0;
+}
+
+.row {
+    overflow: hidden;
+}

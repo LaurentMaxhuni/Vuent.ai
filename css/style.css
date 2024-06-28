@@ -12,6 +12,8 @@
     --blob-color-4: #ff8f95;
 
     --white: #fff5f5;
+    --hover-nav-gray: #dcdcdc;
+    --active-nav-gray: #bbbbbb;
     --black: #1f1f1f;
 }
 
@@ -117,7 +119,7 @@ nav {
 .navbar-toggler:not(.collapsed) .navbar-toggler-icon::before {
     opacity: 0;
 }
-
+ 
 .navbar-toggler:not(.collapsed) .navbar-toggler-icon::after {
     transform: rotate(-90deg) translateX(7px);
 }
@@ -148,11 +150,11 @@ li {
     transition: .3s;
 
     &:hover {
-        color: var(--blob-color-2) !important;
+        color: var(--hover-nav-gray) !important;
     }
 
     &:active {
-        color: var(--blob-color-1) !important;
+        color: var(--active-nav-gray) !important;
     }
 }
 
@@ -167,17 +169,25 @@ li {
     transition: .3s;
 
     &:hover {
-        color: var(--blob-color-2) !important;
+        background-color: rgba(255, 255, 255, 0.2) !important;
+    }
+
+    &:active {
+        background-color: rgba(255, 255, 255, 0.4) !important;
     }
 }
 
 .dropdown-menu .dropdown-item.active {
     font-weight: 900;
-    background-color: var(--blob-color-4);
+    background-color: var(--hover-nav-gray);
     transition: .3s;
 
     &:hover {
-        color: var(--white) !important;
+        background-color: rgba(255, 255, 255, 0.2) !important;
+    }
+
+    &:active {
+        background-color: rgba(255, 255, 255, 0.4) !important;
     }
 }
 
@@ -491,29 +501,39 @@ svg {
     }
 }
 
+.card-image {
+    display: grid;
+    place-self: center;
+}
+
 .input-group {
-    border-radius: 50% !important;
+    border-radius: 9999px !important;
 }
 
 .input-group-text {
     background-color: rgba(255, 255, 255, 0.4) !important;
     color: var(--white) !important;
-    backdrop-filter: blur(15px) !important;
+    border-top-left-radius: 9999px !important;
+    border-bottom-left-radius: 9999px !important;
 }
 
 .form-control {
     background-color: rgba(255, 255, 255, 0.2) !important;
     color: var(--white) !important;
-    backdrop-filter: blur(15px) !important;
+    border-top-right-radius: 9999px !important;
+    border-bottom-right-radius: 9999px !important;
 }
 
 .form-control::placeholder {
     color: var(--white);
 }
 
+.form-control ~ label::after {
+    color: var(--white) !important;
+    background-color: rgba(255, 255, 255, .1) !important;
+}
 .form-control ~ label {
-    color: var(--white);
-    background-color: transparent;
+    color: var(--white) !important;
 }
 
 footer {
@@ -530,4 +550,12 @@ footer {
     .links-wrapper .button-outline {
         margin-bottom: 8px; /* Adjust vertical spacing for smaller screens */
     }
+}
+
+.black {
+    color: var(--black) !important;
+}
+
+.orange {
+    color: var(--color-3) !important;
 }
