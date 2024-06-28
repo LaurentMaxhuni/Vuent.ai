@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css?family=Alexandria:700|Noto%20Sans%20Anatolian%20Hieroglyphs:400');
+
+:root {
+    --color-1: #3558FF;
+    --color-2: #9F1DFF;
+    --color-3: #FF642C;
+
+    --blob-color-1: #8095ff;
+    --blob-color-2: #a6b5ff;
+    --blob-color-3: #ffa987;
+    --blob-color-4: #ff8f95;
+
+    --white: #fff5f5;
+    --black: #1f1f1f;
+    --gray: #dbdbdb;
+
+    --message-user: #9b2fe8;
+    --message-ai: #3852d4;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    color: var(--white) !important;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background: linear-gradient(269deg,
+            /* var(--color-3) 0%, */
+            var(--color-2) 33%, var(--color-1) 100%) !important;
+    font-family: 'Noto Sans Anatolian Hieroglyphs';
+    font-weight: 400;
+    height: 100%;
+    overflow: hidden;
+}
+
+nav {
+    top: 10px !important;
+    left: 20px !important;
+    right: 20px !important;
+    background: rgba(255, 255, 255, .2) !important;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.1) !important;
+    border-radius: 15px;
+}
+
+.navbar-toggler {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.navbar-toggler-icon {
+    background-image: none !important;
+    background-color: var(--white);
+    height: 3px !important;
+    width: 25px;
+    margin: 10px 0;
+    position: relative;
+    transition: all 0.35s ease-out;
+    transform-origin: center;
+}
+
+.navbar-toggler-icon::before {
+    display: block;
+    background-color: var(--white);
+    height: 3px;
+    content: "";
+    position: relative;
+    top: -7px;
+    transition: all 0.15s ease-out;
+    transform-origin: center;
+}
+
+.navbar-toggler-icon::after {
+    display: block;
+    background-color: var(--white);
+    height: 3px;
+    content: "";
+    position: relative;
+    top: 4px;
+    transition: all 0.35s ease-out;
+    transform-origin: center;
+}
+
+.navbar-dark .navbar-toggler-icon,
+.navbar-dark .navbar-toggler-icon::before,
+.navbar-dark .navbar-toggler-icon::after {
+    background-color: var(--black);
+}
+
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon {
+    transform: rotate(45deg);
+}
+
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon::before {
+    opacity: 0;
+}
+
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon::after {
+    transform: rotate(-90deg) translateX(7px);
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+a,
+li {
+    color: var(--white) !important;
+    font-family: 'Alexandria';
+    font-weight: 700;
+}
+
+
+.navbar-brand {
+    font-size: 1.5rem !important;
+    font-weight: bold;
+}
+
+.nav-link {
+    color: var(--white) !important;
+    font-size: 1.2rem;
+    font-weight: 400;
+    transition: .3s;
+
+    &:hover {
+        color: var(--blob-color-2) !important;
+    }
+
+    &:active {
+        color: var(--blob-color-1) !important;
+    }
+}
+
+
+.dropdown-menu {
+    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, .5) !important;
+}
+
+.dropdown-menu .dropdown-item {
+    font-weight: 900;
+    transition: .3s;
+
+    &:hover {
+        color: var(--blob-color-2) !important;
+    }
+}
+
+.dropdown-menu .dropdown-item.active {
+    font-weight: 900;
+    background-color: var(--blob-color-4);
+    transition: .3s;
+
+    &:hover {
+        color: var(--white) !important;
+    }
+}
+
+.sphere {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    box-shadow:
+        inset 0 0 50px var(--white),
+        inset 20px 0 80px var(--message-user),
+        inset -20px 0 80px var(--message-ai),
+        inset 20px 0 300px var(--message-user),
+        inset -20px 0 300px var(--message-ai),
+        0 0 50px var(--white),
+        -10px 0 80px var(--message-user),
+        10px 0 80px var(--message-ai);
+}
+
+.col-12,
+.col-lg-6 {
+    display: grid;
+    place-self: center;
+    overflow-x: hidden !important;
+}
+
+.row {
+    overflow: hidden !important;
+    height: 100% !important;
+}
+
