@@ -238,15 +238,13 @@ p {
 
 @media screen and (max-width: 426px) {
     .sphere {
-        width: 200px;
-        height: 200px;
+        width: 250px !important;
+        height: 250px !important;
     }
 
     .blobs {
-        width: 200px;
-        height: 200px;
-        max-width: none;
-        max-height: none;
+        width: 250px;
+        height: 250px !important;
     }
 }
 
@@ -492,7 +490,6 @@ svg {
     position: fixed;
     top: 5px;
     right: 5px;
-    background-color: var(--message-ai);
     color: var(--white);
     border: none;
     border-radius: 35px;

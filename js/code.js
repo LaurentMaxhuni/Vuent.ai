@@ -37,7 +37,6 @@ function getResponse(userMessage) {
         .then(response => response.json())
         .then(data => {
             var aiResponse = data.choices[0].message.content;
-            debugger;
             var regex = /```([\s\S]*?)```/g;
             aiResponse = aiResponse.replace(regex, function (match, p1) {
                 p1 = p1.replace(/</g, '&lt;').replace(/>/g, '&gt;');
