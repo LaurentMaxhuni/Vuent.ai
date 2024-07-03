@@ -40,9 +40,95 @@ function getResponse(userMessage) {
             var regex = /```([\s\S]*?)```/g;
             aiResponse = aiResponse.replace(regex, function (match, p1) {
                 p1 = p1.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-                return `<div><pre><code>${p1}</code></pre></div>`
+                return `<div class='divie'><pre><code>${p1}</code></pre></div>`
             });
 
+            function typeEffect(element, text, speed) {
+                element.textContent = "";
+                const typingCursor = document.createElement("span");
+                typingCursor.classList.add("typing-cursor");
+                element.appendChild(typingCursor);
+
+                let i = 0;
+                function type() {
+                    if (i < text.length) {
+                        element.innerHTML = text.substring(0, i + 1);
+                        i++;
+                        setTimeout(type, speed);
+                        chatBox.scrollTop = chatBox.scrollHeight;
+                    } else {
+                        element.removeChild(typingCursor);
+                    }
+                }
+                type();
+            }
+            let speed = 5;
+            if(aiResponse.length > 250) {
+                speed = 15;
+            } else if (aiResponse.length > 100) {
+                speed = 7;
+            }
+            const text = aiResponse;
+            typeEffect(aiResponseMessage, text, speed);
+            document.querySelector('pre').addEventListener('click', function() {
+                navigator.clipboard.writeText(this.textContent);
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: "bottom-end",
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    color: 'black',
+                    iconColor: '#FF642C',
+                    customClass: {
+                        title: 'black',
+                    },
+                    didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+                    }
+                });
+                Toast.fire({
+                    icon: "success",
+                    iconColor: '#FF642C',
+                    customClass: {
+                        iconColor: 'orange',
+                    },
+                    title: "Copied!"
+                })
+            })
+            // document.querySelector('.divie').addEventListener('mouseover', function() {
+            //     this.style.cursor = 'pointer';
+            //     this.style.backgroundColor = 'rgba(255, 255, 255, 0.7)';
+            //     this.addEventListener('click', function() {
+            //         navigator.clipboard.writeText(this.textContent);
+            //         const Toast = Swal.mixin({
+            //             toast: true,
+            //             position: "bottom-end",
+            //             showConfirmButton: false,
+            //             timer: 3000,
+            //             timerProgressBar: true,
+            //             color: 'black',
+            //             iconColor: '#FF642C',
+            //             customClass: {
+            //                 title: 'black',
+            //             },
+            //             didOpen: (toast) => {
+            //                 toast.onmouseenter = Swal.stopTimer;
+            //                 toast.onmouseleave = Swal.resumeTimer;
+            //             }
+            //         });
+            //         Toast.fire({
+            //             icon: "success",
+            //             iconColor: '#FF642C',
+            //             customClass: {
+            //                 iconColor: 'orange',
+            //             },
+            //             color: 'black',
+            //             title: 'Copied!'
+            //         });
+            //     })
+            // })
             aiResponseMessage.innerHTML = aiResponse;
             chatHistory += ' Assistant: ' + aiResponseMessage.innerHTML;
             chatBox.scrollTop = chatBox.scrollHeight;
@@ -51,12 +137,15 @@ function getResponse(userMessage) {
             aiResponseMessage.textContent = 'Oops! Something went wrong. Try again later!';
             Swal.fire({
                 title: "Error!",
+                customClass: {
+                    title: 'black'
+                },
                 text: "Do you want to continue",
                 icon: 'error',
-                iconColor: 'black',
+                iconColor: '#FF642C',
                 color: 'black',
                 confirmButtonText: 'OK',
-                confirmButtonColor: 'black',
+                confirmButtonColor: '#FF642C',
                 timer: 5000,
                 timerProgressBar: true
             })
