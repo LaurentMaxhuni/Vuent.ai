@@ -35,21 +35,37 @@ async function query(input) {
     }
 }
 
-button.addEventListener('click', () => {
-    document.getElementById(`generated-image`).src = '../assets/loading.gif';
+button.addEventListener('click', async () => {
+    var displayImages = document.getElementById('displayImages');
+    let loader = document.createElement('div');
+    loader.className = 'loader';
+    loader.id = 'loader';
+    let image = document.createElement('img');
+    image.classList.add('img-fluid');
+    image.classList.add('generated-image');
+    image.id = 'generated-image';
+    if (displayImages.contains(loader)) {
+        loader.remove();
+    } else if (displayImages.contains(document.getElementById('generated-image'))) {
+        document.getElementById('generated-image').remove();
+        displayImages.appendChild(loader);
+    } else if (displayImages.contains(loader) && displayImages.contains(document.getElementById('generated-image'))) {
+        document.getElementById('generated-image').remove();
+    } else {
+        displayImages.appendChild(loader);
+    }
     var input = userInput.value;
     var counter = 0;
     userHistory += `User: ${input} (Prompt ${counter})`;
-    if(counter == 3) {
-        userHistory = null;
-    }
-    query(userHistory).then((response) => {
+    await query(userHistory).then((response) => {
+        displayImages.lastElementChild.remove();
         counter++;
         URL.revokeObjectURL(response);
         var objectURL = URL.createObjectURL(response);
         objectURL.toString();
-        document.getElementById(`generated-image`).src = objectURL;
-        setTimeout(function() {
+        image.src = objectURL;
+        displayImages.appendChild(image);
+        setTimeout(function () {
             delete window.Blob
             window.URL.revokeObjectURL(objectURL);
         }, 1000)
@@ -60,22 +76,39 @@ button.addEventListener('click', () => {
 
 var counter = 0;
 
-userInput.addEventListener('keypress', (event) => {
+userInput.addEventListener('keypress', async (event) => {
     if (event.key == 'Enter') {
-        document.getElementById(`generated-image`).src = '../assets/loading.gif';
+        var displayImages = document.getElementById('displayImages');
+        let loader = document.createElement('div');
+        loader.className = 'loader';
+        loader.id = 'loader';
+        let image = document.createElement('img');
+        image.classList.add('img-fluid');
+        image.classList.add('generated-image');
+        image.id = 'generated-image';
         debugger;
-        var input = userInput.value;
-        userHistory += `User: ${input} (Prompt ${counter})`;
-        if(counter == 3) {
-            counter = 0;
+        if (displayImages.contains(loader)) {
+            loader.remove();
+        } else if (displayImages.contains(document.getElementById('generated-image'))) {
+            document.getElementById('generated-image').remove();
+            displayImages.appendChild(loader);
+        } else if (displayImages.contains(loader) && displayImages.contains(document.getElementById('generated-image'))) {
+            document.getElementById('generated-image').remove();
+        } else {
+            displayImages.appendChild(loader);
         }
-        query(userHistory).then((response) => {
+        var input = userInput.value;
+        var counter = 0;
+        userHistory += `User: ${input} (Prompt ${counter})`;
+        await query(userHistory).then((response) => {
+            displayImages.lastElementChild.remove();
             counter++;
             URL.revokeObjectURL(response);
             var objectURL = URL.createObjectURL(response);
             objectURL.toString();
-            document.getElementById(`generated-image`).src = objectURL;
-            setTimeout(function() {
+            image.src = objectURL;
+            displayImages.appendChild(image);
+            setTimeout(function () {
                 delete window.Blob
                 window.URL.revokeObjectURL(objectURL);
             }, 1000)

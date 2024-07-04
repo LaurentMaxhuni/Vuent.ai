@@ -235,15 +235,13 @@ p {
 
 @media screen and (max-width: 426px) {
     .sphere {
-        width: 200px;
-        height: 200px;
+        width: 250px !important;
+        height: 250px !important;
     }
 
     .blobs {
-        width: 200px;
-        height: 200px;
-        max-width: none;
-        max-height: none;
+        width: 250px;
+        height: 250px !important;
     }
 }
 
@@ -454,6 +452,7 @@ svg {
     height: 350px;
     border-radius: 15px;
     transition: .3s;
+
     &:hover {
         transform: scale(1.02);
     }
@@ -509,5 +508,58 @@ svg {
     &:hover {
         cursor: pointer;
         background-color: var(--hover-nav-gray) !important;
+    }
+}
+
+
+
+/* HTML: <div class="loader"></div> */
+/* .loader {
+    display: grid;
+    place-self: center;
+    width: 60px;
+    aspect-ratio: .577;
+    clip-path: polygon(0 0, 100% 100%, 0 100%, 100% 0);
+    position: relative;
+    animation: l19 2s infinite linear;
+    overflow: hidden;
+}
+
+.loader:before {
+    content: "";
+    position: absolute;
+    inset: -150% -150%;
+    background: repeating-conic-gradient(from 30deg, var(--blob-color-3) 0 60deg, var(--blob-color-2) 0 120deg, var(--blob-color-3) 0 180deg);
+    animation: inherit;
+    animation-direction: reverse;
+}
+
+@keyframes l19 {
+    100% {
+        transform: rotate(360deg)
+    }
+} */
+
+/* HTML: <div class="loader"></div> */
+.loader {
+    height: 5px;
+    width: 200px;
+    --c: no-repeat linear-gradient(var(--blob-color-3) 0 0);
+    background: var(--c), var(--c), #d7b8fc;
+    background-size: 60% 100%;
+    animation: l16 3s infinite;
+}
+
+@keyframes l16 {
+    0% {
+        background-position: -150% 0, -150% 0
+    }
+
+    66% {
+        background-position: 250% 0, -150% 0
+    }
+
+    100% {
+        background-position: 250% 0, 250% 0
     }
 }
