@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vuent.ai | The Best Ai Companition</title>
+    <title>Vuent.ai | The Best AI Companition</title>
     <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
     <!-- Tailwind CSS Links -->
@@ -110,11 +110,11 @@
                         </div>
                     </div>
                 </div>
-                <h1 class="display-1" data-aos="fade-up" data-aos-duration="1000">Welcome to Vuent.ai!</h1>
-                <p class="fs-2" data-aos="fade-up" data-aos-duration="1000">Where we connect you to the future!</p>
-                <div class="button-wrapper" data-aos="fade-up" data-aos-duration="1000">
-                    <button class="button-full" id="tryChat" onclick="tryChat()">Try Chat!</button>
-                    <button class="button-outline" onclick="toAboutSection()">About Us</button>
+                <h1 class="display-1" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="150">Welcome to Vuent.ai!</h1>
+                <p class="fs-2" data-aos="fade-down" data-aos-duration="1000">Where we connect you to the future!</p>
+                <div class="button-wrapper">
+                    <button class="button-full" id="tryChat" onclick="tryChat()" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="600">Try Chat!</button>
+                    <button class="button-outline" onclick="toAboutSection()" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="600">About Us</button>
                 </div>
             </div>
         </div>
@@ -184,11 +184,6 @@
     <section class="mt-5 mb-5 py-5" id="about">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-xl-6 col-lg-6 mb-4 d-flex justify-content-center" data-aos="fade-right"
-                    data-aos-duration="750">
-                    <img src="assets/logo.png" alt="" class="img-fluid tw-rounded-full tw-drop-shadow-md mb-1"
-                        height="400" width="400">
-                </div>
                 <div class="col-12 col-xl-6 col-lg-6 text-center text-md-start" data-aos="fade-left"
                     data-aos-duration="750">
                     <h1 class="fs-1">About Us!</h1>
@@ -198,6 +193,11 @@
                         chat, code, and image generation tools.</p>
 
                 </div>
+                <div class="col-12 col-xl-6 col-lg-6 mb-4 d-flex justify-content-center" data-aos="fade-right"
+                    data-aos-duration="750">
+                    <img src="assets/logo.png" alt="" class="img-fluid tw-rounded-full tw-drop-shadow-md mb-1"
+                        height="400" width="400">
+                </div>
             </div>
         </div>
     </section>
@@ -206,7 +206,7 @@
             <div class="row">
                 <div class="col-12 col-xl-6 col-lg-6 text-center text-md-start" data-aos="fade-right"
                     data-aos-duration="750">
-                    <h1 class="fs-1">About me</h1>
+                    <h1 class="fs-1">About me!</h1>
                     <p class="lead mt-3 mb-3 fs-5">
                         I am 14 years old. I live in Kosova, Vushtrri. I have a passion for programming, I learned it
                         independently. I am also
@@ -261,7 +261,7 @@
                             <div class="input-group mb-3 tw-rounded-full">
                                 <span class="input-group-text"><i class="fi fi-rr-at"></i></span>
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="email" placeholder="Email" name="email">
+                                    <input type="email" class="form-control" id="email" placeholder="Email" name="email">
                                     <label for="email">Email</label>
                                 </div>
                             </div>
