@@ -1,90 +1,20 @@
-var options = {
-    chart: {
-        type: 'area',
-        toolbar: {
-            tools: {
-                selection: true,
-                zoom: `<i class="fi fi-rr-search tw-text-white tw-text-lg"></i>`,
-                zoomin: `<i class="fi fi-rr-add tw-text-white tw-text-xl"></i>`,
-                zoomout: `<i class="fi fi-rr-minus-circle tw-text-white tw-text-xl"></i>`,
-                pan: `<i class="fi fi-rr-hand-paper tw-text-white tw-text-2xl"></i>`,
-                reset: `<i class="fi fi-rr-home tw-text-white tw-text-lg"></i>`,
-                download: `<i class="fi fi-rr-menu-burger tw-text-white tw-text-xl"></i>`,
-                
-            }
-        }
-    },
-    stroke: {
-        curve: 'smooth',
-    },
-    series: [{
-        name: 'sales',
-        data: [null, null, null, 0, 30, 35, 50, 37, 78, 92, 63, 125]
-    }],
-    xaxis: {
-        categories: [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028],
-        labels: {
-            rotate: -45,
-            rotateAlways: true,
-            style: {
-                colors: 'white',
-                fontSize: '14px',
-            }
-        }
-    },
-    yaxis: {
-        labels: {
-            show: true,
-            style: {
-                colors: 'white',
-                fontSize: '14px',
-            }
-        }
-    },
-    row: {
-        colors: ['#FF642C']
-    },
-    colors: ['#FF642C'],
-    responsive: [{
-        breakpoint: 320,
-        options: {
-            chart: {
-                type: 'area'
-            },
-            stroke: {
-                curve: 'smooth',
-            },
-            series: [{
-                name: 'sales',
-                data: [null, null, null, 0, 30, 35, 50, 37, 78, 92, 63, 125]
-            }],
-            xaxis: {
-                categories: [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028]
-            },
-        },
-    }]
-}
-
-var chart = new ApexCharts(document.querySelector("#chart"), options);
-
-chart.render();
-
+//Scroll the about section into view
 function toAboutSection() {
     document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
 }
-
+//Send to chatbot
 function toChatBot() {
     window.location.href = '/html/chatbot.html';
 }
-
+//Send to code chatbot
 function toCode() {
     window.location.href = '/html/code.html';
 }
-
+//Send to designer 
 function toDesigner() {
     window.location.href = '/html/designer.html';
 }
-
+//Send to a random chatbot
 function tryChat() {
     let tryChat = document.getElementById('tryChat');
     tryChat.addEventListener('click', function () {
@@ -100,6 +30,8 @@ function tryChat() {
     })
 }
 
+//EmailJS Initialization
+
 (function () {
     // https://dashboard.emailjs.com/admin/account
     emailjs.init({
@@ -107,6 +39,8 @@ function tryChat() {
     });
 })();
 
+
+//Required DOM Elements
 var email = document.getElementById('email');
 var phone = document.getElementById('phone');
 var city = document.getElementById('city');
@@ -117,6 +51,8 @@ comment.addEventListener('input', function () {
     this.style.height = this.scrollHeight + 'px';
 });
 
+
+//Validation
 window.onload = function () {
     document.getElementById('contact-form').addEventListener('submit', function (event) {
         event.preventDefault();
@@ -158,7 +94,7 @@ window.onload = function () {
                 comment.style.borderColor = '#dee2e6';
             })
         }
-
+        //Send email to user's email and Vuent.ai Email
         if(email.value && phone.value && city.value && comment.value) {
             const serviceID = 'service_5kvl66q';
             const templateID = 'template_qd20eyg';
@@ -197,7 +133,7 @@ window.onload = function () {
                     })
                 });
         }
-
+        //Validation Check for user inputs
         function validationCheck(error) {
             const Toast = Swal.mixin({
                 toast: true,

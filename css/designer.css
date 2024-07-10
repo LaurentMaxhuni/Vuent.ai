@@ -166,7 +166,8 @@ p {
 
 .dropdown-menu {
     backdrop-filter: blur(15px);
-    background: rgba(255, 255, 255, .2) !important;
+    background: rgba(255, 255, 255, .4) !important;
+    border: none;
 }
 
 .dropdown-menu .dropdown-item {
@@ -511,39 +512,10 @@ svg {
     }
 }
 
-
-
-/* HTML: <div class="loader"></div> */
-/* .loader {
-    display: grid;
-    place-self: center;
-    width: 60px;
-    aspect-ratio: .577;
-    clip-path: polygon(0 0, 100% 100%, 0 100%, 100% 0);
-    position: relative;
-    animation: l19 2s infinite linear;
-    overflow: hidden;
-}
-
-.loader:before {
-    content: "";
-    position: absolute;
-    inset: -150% -150%;
-    background: repeating-conic-gradient(from 30deg, var(--blob-color-3) 0 60deg, var(--blob-color-2) 0 120deg, var(--blob-color-3) 0 180deg);
-    animation: inherit;
-    animation-direction: reverse;
-}
-
-@keyframes l19 {
-    100% {
-        transform: rotate(360deg)
-    }
-} */
-
-/* HTML: <div class="loader"></div> */
 .loader {
     height: 5px;
     width: 200px;
+    border-radius: 5px;
     --c: no-repeat linear-gradient(var(--blob-color-3) 0 0);
     background: var(--c), var(--c), #d7b8fc;
     background-size: 60% 100%;

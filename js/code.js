@@ -1,16 +1,21 @@
+//DOM Elementes needed for this to work
 var chatBox = document.getElementById('displayMessages');
 var chatInput = document.getElementById('userInput');
 var sendButton = document.getElementById('sendButton');
-
+//Checks if screen width is more than 481 px
 if (window.innerWidth < 481) {
     chatBox.innerHTML = '<h1 class="text-center display-4">Please use a larger screen to view the chatbot.</h1>'
 }
-
+//API Key
 var apiKey = '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';
 var chatHistory = '';
+
+//Get Response from AI Model
 async function getResponse(userMessage) {
+    //API URL
     const apiUrl = 'https://api.groq.com/openai/v1/chat/completions';
     var aiResponseMessage = chatBox.lastElementChild;
+    //Get Chat History
     if (chatHistory === '') {
         chatHistory += ' User: ' + userMessage;
         userMessage = chatHistory;
@@ -18,6 +23,7 @@ async function getResponse(userMessage) {
         chatHistory += ' User: ' + userMessage;
         userMessage = chatHistory;
     }
+    //Request Options for the URL fetch
     const requestOptions = {
         method: 'POST',
         headers: {
@@ -26,13 +32,14 @@ async function getResponse(userMessage) {
         },
         body: JSON.stringify({
             model: 'llama3-70b-8192',
-            messages: [{ role: 'system', content: 'ALWAYS PUT CODE BETWEEN ```. Only answer the last question the user asks. When the first message is sent dont tell the user that the message was cut off that was intentional on the server side. No notes the user shouldnt know there is a chat history. You are also a very helpful Coder, Programmer, Developer. You have the most knowledge in Computer Science and Programming Languages. Reply with emojis if you can.' }, { role: 'user', content: userMessage }],
+            messages: [{ role: 'system', content: 'EXTREMLY IMPORTANT Always put code inside of the following "```". Only answer the last question the user asks. When the first message is sent dont tell the user that the message was cut off that was intentional on the server side. No notes the user shouldnt know there is a chat history. You are also a very helpful Coder, Programmer, Developer. You have the most knowledge in Computer Science and Programming Languages. Reply with emojis if you can.' }, { role: 'user', content: userMessage }],
             temperature: 1,
             top_p: 1,
             stream: false,
             max_tokens: 2048
         })
     };
+    //Fetch response from AI
     await fetch(apiUrl, requestOptions)
         .then(response => response.json())
         .then(data => {
@@ -40,9 +47,9 @@ async function getResponse(userMessage) {
             var regex = /```([\s\S]*?)```/g;
             aiResponse = aiResponse.replace(regex, function (match, p1) {
                 p1 = p1.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-                return `<div class="div"><div class="copy-container"><button id="copy-content"><i class="fi fi-rr-clipboard" ></i> Copy! </button></div><pre><code id="code-content">${p1}</code></pre></div>`
+                return `<div class="div"><div class="copy-container"><button id="copy-content" onclick="copyCode()"><i class="fi fi-rr-clipboard" ></i> Copy! </button></div><pre><code id="code-content">${p1}</code></pre></div>`
             });
-
+            //Typing effect
             function typeEffect(element, text, speed) {
                 element.textContent = "";
                 const typingCursor = document.createElement("span");
@@ -70,48 +77,10 @@ async function getResponse(userMessage) {
             }
             const text = aiResponse;
             typeEffect(aiResponseMessage, text, speed);
-            aiResponseMessage.innerHTML = aiResponse;
             chatHistory += ' Assistant: ' + aiResponseMessage.innerHTML;
             chatBox.scrollTop = chatBox.scrollHeight;
-            // var copyButton = document.getElementById('copy-content');
-            // console.log(copyButton);
-            // var codeContent = document.getElementById('code-content');
-            // if (document.body.contains(copyButton) === true) {
-            //     copyButton.addEventListener('click',
-            //     function copyCode() {
-            //         navigator.clipboard.writeText(codeContent.innerHTML);
-            //         console.log(codeContent.innerText);
-            //         const Toast = Swal.mixin({
-            //             toast: true,
-            //             position: "bottom-end",
-            //             showConfirmButton: false,
-            //             timer: 3000,
-            //             timerProgressBar: true,
-            //             color: 'black',
-            //             iconColor: '#FF642C',
-            //             customClass: {
-            //                 title: 'black',
-            //             },
-            //             didOpen: (toast) => {
-            //                 toast.onmouseenter = Swal.stopTimer;
-            //                 toast.onmouseleave = Swal.resumeTimer;
-            //             }
-            //         });
-            //         Toast.fire({
-            //             icon: "success",
-            //             iconColor: '#FF642C',
-            //             customClass: {
-            //                 title: 'black',
-            //                 iconColor: 'orange',
-            //             },
-            //             title: "Copied!"
-            //         })
-            //     }
-            // );
-            // }
-        })
-        .catch((error) => {
-            console.log(error);
+        }).catch(() => {
+            //Catch errors and display error message
             aiResponseMessage.textContent = 'Oops! Something went wrong. Try again later!';
             Swal.fire({
                 title: "Error!",
@@ -130,6 +99,7 @@ async function getResponse(userMessage) {
         })
 }
 
+//Event Listener for send Button
 sendButton.addEventListener('click', function () {
     var userInput = chatInput.value;
     if (userInput === '') {
@@ -138,11 +108,12 @@ sendButton.addEventListener('click', function () {
     chatBox.innerHTML += `<div class="message-user">${userInput}</div>`;
     chatBox.innerHTML += `<div class="message-ai">...</div>`;
 
+    //Call the function
     getResponse(userInput)
     chatInput.value = '';
     chatBox.scrollTop = chatBox.scrollHeight;
 })
-
+//Event listener for Enter key pressed
 chatInput.addEventListener('keypress', function (event) {
     if (event.key == 'Enter') {
         var userInput = chatInput.value;
@@ -152,8 +123,36 @@ chatInput.addEventListener('keypress', function (event) {
         chatBox.innerHTML += `<div class="message-user">${userInput}</div>`;
         chatBox.innerHTML += `<div class="message-ai">...</div>`;
 
+        //Call the function
         getResponse(userInput)
         chatInput.value = '';
         chatBox.scrollTop = chatBox.scrollHeight;
     }
 })
+
+//Function to copy code from the AI Generated Code
+function copyCode() {
+    var codeContent = document.getElementById('code-content');
+    window.navigator.clipboard.writeText(codeContent.innerHTML);
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'bottom-end',
+        showConfirmButton: false,
+        timer: 1000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+    Toast.fire({
+        title: "Copied!",
+        customClass: {
+            title: 'black'
+        },
+        icon: 'success',
+        iconColor: '#FF642C',
+        color: 'black',
+    })
+}
+

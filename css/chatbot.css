@@ -166,7 +166,8 @@ p {
 
 .dropdown-menu {
     backdrop-filter: blur(15px);
-    background: rgba(255, 255, 255, .2) !important;
+    background: rgba(255, 255, 255, .4) !important;
+    border: none;
 }
 
 .dropdown-menu .dropdown-item {
@@ -484,6 +485,7 @@ svg {
     align-self: flex-start;
     border-radius: 25px;
     margin-right: 4px;
+    font-weight: 500;
 }
 
 .message-ai .copy-button {
