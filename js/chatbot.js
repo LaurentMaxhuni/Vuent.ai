@@ -45,7 +45,7 @@ async function getResponse(userMessage) {
             var regex = /```([\s\S]*?)```/g;
             aiResponse = aiResponse.replace(regex, function (match, p1) {
                 p1 = p1.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-                return `<div class="div"><div class="copy-container"><i class="fi fi-rr-clipboard" id="copy-button"></i></div><pre><code id="code-content">${p1}</code></pre></div>`
+                return `<div class="div"><div class="copy-container"><button id="copy-content" onclick="copyCode()"><i class="fi fi-rr-clipboard" ></i> Copy! </button></div><pre><code id="code-content">${p1}</code></pre></div>`
             });
             //Typing effect
             function typeEffect(element, text, speed) {

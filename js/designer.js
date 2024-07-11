@@ -59,12 +59,12 @@ button.addEventListener('click', async () => {
     var input = userInput.value;
     var counter = 0;
     userHistory += `User: ${input} (Prompt ${counter})`;
-     //Call function
+    //Call function
     await query(userHistory).then((response) => {
         displayImages.lastElementChild.remove();
         counter++;
         URL.revokeObjectURL(response);
-         //Returned response to a URL Object
+        //Returned response to a URL Object
         var objectURL = URL.createObjectURL(response);
         objectURL.toString();
         image.src = objectURL;
@@ -91,7 +91,6 @@ userInput.addEventListener('keypress', async (event) => {
         image.classList.add('img-fluid');
         image.classList.add('generated-image');
         image.id = 'generated-image';
-        debugger;
         if (displayImages.contains(loader)) {
             loader.remove();
         } else if (displayImages.contains(document.getElementById('generated-image'))) {
@@ -120,7 +119,72 @@ userInput.addEventListener('keypress', async (event) => {
                 delete window.Blob
                 window.URL.revokeObjectURL(objectURL);
             }, 1000)
+
+
+            let downloadBtn = document.createElement('button');
+            downloadBtn.style.backgroundColor = "transparent";
+            let downloadIcon = document.createElement('i');
+            downloadIcon.classList.add('fi');
+            downloadIcon.classList.add('fi-rr-download');
+            downloadBtn.appendChild(downloadIcon);
+            downloadBtn.style.border = "none";
+            downloadBtn.style.color = "white";
+            downloadBtn.style.cursor = "pointer";
+            downloadBtn.style.position = "absolute";
+            downloadBtn.style.top = "50%";
+            downloadBtn.style.left = "50%";
+            downloadBtn.style.transform = "translate(-50%, -50%)";
+            downloadBtn.style.fontSize = "20px";
+            downloadBtn.style.zIndex = "10";
+
+            let container = image.parentElement;
+
+
+
+            let isHoveringImage = false;
+            let isHoveringButton = false;
+            image.addEventListener('mouseover', function () {
+                isHoveringImage = true;
+                image.style.filter = "brightness(75%)";
+                container.appendChild(downloadBtn);
+            });
+
+            image.addEventListener('mouseout', function () {
+                isHoveringImage = false;
+                setTimeout(() => {
+                    if (!isHoveringButton) {
+                        image.style.filter = "brightness(100%)";
+                        downloadBtn.remove();
+                    }
+                }, 100); // Add a small delay to allow hover over button
+            });
+
+            downloadBtn.addEventListener('mouseover', function () {
+                isHoveringButton = true;
+                image.style.filter = "brightness(75%)";
+            });
+
+            downloadBtn.addEventListener('mouseout', function () {
+                isHoveringButton = false;
+                setTimeout(() => {
+                    if (!isHoveringImage) {
+                        image.style.filter = "brightness(100%)";
+                        downloadBtn.remove();
+                    }
+                }, 100); // Add a small delay to allow hover over image
+            });
+
+            downloadBtn.addEventListener('click', function () {
+                var link = document.createElement('a');
+                link.href = objectURL;
+                link.type = 'image/png';
+                link.download = 'image.png';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            })
             userInput.value = '';
         })
     }
-});
+}
+);
