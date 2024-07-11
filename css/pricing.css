@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&family=Noto+Sans+Anatolian+Hieroglyphs&display=swap');
 
+/* CSS Variables */
 :root {
     scrollbar-color: transparent;
     --color-1: #3558FF;
@@ -49,7 +50,7 @@ html {
     width: 100%;
     overflow-x: hidden;
 }
-
+/* Sets the gradient for the background*/
 body {
     width: 100%;
     background: linear-gradient(269deg,
@@ -67,7 +68,7 @@ nav {
     backdrop-filter: blur(15px);
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
 }
-
+/* Navbar toggler change*/
 .navbar-toggler {
     border: none !important;
     box-shadow: none !important;
@@ -123,7 +124,7 @@ nav {
 .navbar-toggler:not(.collapsed) .navbar-toggler-icon::after {
     transform: rotate(-90deg) translateX(7px);
 }
-
+/* Sets the font and color of main text elements */
 h1,
 h2,
 h3,
@@ -212,7 +213,7 @@ p {
 .row {
     overflow: hidden;
 }
-
+/* Button styles for fully colored buttons */
 .button-full {
     background-color: var(--white) !important;
     color: var(--color-2) !important;
@@ -229,7 +230,7 @@ p {
         border-color: color-mix(in srgb, var(--white) 85%, var(--black) 15%);
     }
 }
-
+/* Button styles for outlined buttons */
 .button-outline {
     background-color: transparent;
     color: var(--white);
@@ -255,7 +256,7 @@ p {
     display: grid;
     place-self: center;
 }
-
+/* Card styles */
 .card {
     background-color: rgba(255, 255, 255, 0.1) !important;
     border: 2px solid var(--white) !important;
@@ -269,7 +270,7 @@ p {
         background-color: rgba(255, 255, 255, 0.3) !important;
     }
 }
-
+/* Footer Styles */
 footer {
     background-color: rgba(0, 0, 0, 0.1) !important;
 }

@@ -87,10 +87,10 @@ async function generateImage() {
         downloadBtn.style.color = "white";
         downloadBtn.style.cursor = "pointer";
         downloadBtn.style.position = "absolute";
-        downloadBtn.style.top = "50%";
+        downloadBtn.style.top = "55%";
         downloadBtn.style.left = "50%";
         downloadBtn.style.transform = "translate(-50%, -50%)";
-        downloadBtn.style.fontSize = "20px";
+        downloadBtn.style.fontSize = "35px";
         downloadBtn.style.zIndex = "10";
 
         let container = image.parentElement;

@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&family=Noto+Sans+Anatolian+Hieroglyphs&display=swap');
 
-
+/* CSS Variables */
 :root {
     scrollbar-color: transparent;
     --color-1: #3558FF;
@@ -450,7 +450,6 @@ svg {
 .button-full {
     background-color: var(--white) !important;
     color: var(--color-2) !important;
-    /* mix-blend-mode: screen; */
     border: 2px solid var(--white);
     border-radius: 8px;
     padding: 8px 16px;

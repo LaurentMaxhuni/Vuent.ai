@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&family=Noto+Sans+Anatolian+Hieroglyphs&display=swap');
 
+
+/* CSS Variables */
 :root {
     scrollbar-color: transparent;
     --color-1: #3558FF;
@@ -49,7 +51,7 @@ html {
     width: 100%;
     overflow-x: hidden;
 }
-
+/* Sets the gradient for the background*/
 body {
     width: 100%;
     background: linear-gradient(269deg,
@@ -67,7 +69,7 @@ nav {
     backdrop-filter: blur(15px);
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
 }
-
+/* Navbar toggler change*/
 .navbar-toggler {
     border: none !important;
     box-shadow: none !important;
@@ -123,7 +125,7 @@ nav {
 .navbar-toggler:not(.collapsed) .navbar-toggler-icon::after {
     transform: rotate(-90deg) translateX(7px);
 }
-
+/* Sets the font and color of main text elements */
 h1,
 h2,
 h3,
@@ -196,7 +198,7 @@ p {
         background-color: rgba(255, 255, 255, 0.4) !important;
     }
 }
-
+/* Style for the blob animation in the center page */
 .container1,
 .palette-1 {
     --blob-1: var(--blob-color-3);
@@ -432,7 +434,7 @@ svg {
 .row {
     overflow: hidden;
 }
-
+/* Designer Styles */
 .designer {
     height: 100% !important;
     display: flex;
@@ -518,7 +520,7 @@ svg {
         background-color: var(--hover-nav-gray) !important;
     }
 }
-
+/* Loader Styles */
 .loader {
     height: 5px;
     width: 200px;
@@ -541,21 +543,4 @@ svg {
     100% {
         background-position: 250% 0, 250% 0
     }
-}
-
-#downloadBtn {
-    background-color: transparent;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: none;
-    /* border-radius: 35px; */
-    padding: 8px;
-    font-size: 35px;
-}
-
-#downloadBtn:hover ~ .generated-image {
-    filter: brightness(75%);
-    transition: .3s;
 }
