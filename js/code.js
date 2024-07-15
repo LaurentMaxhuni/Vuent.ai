@@ -45,9 +45,12 @@ async function getResponse(userMessage) {
         .then(data => {
             var aiResponse = data.choices[0].message.content;
             var regex = /```([\s\S]*?)```/g;
+            let codeBlockCount = 0;
             aiResponse = aiResponse.replace(regex, function (match, p1) {
+                codeBlockCount++;
                 p1 = p1.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-                return `<div class="div"><div class="copy-container"><button id="copy-content" onclick="copyCode()"><i class="fi fi-rr-clipboard" ></i> Copy! </button></div><pre><code id="code-content">${p1}</code></pre></div>`
+                // let response = `${p1}`;
+                return `<div class="div"><div class="copy-container"><button id="copy-content" onclick="copyCode('code-content-${codeBlockCount}')"><i class="fi fi-rr-clipboard" ></i> Copy! </button></div><pre><code id="code-content-${codeBlockCount}">${p1}</code></pre></div>`;
             });
             //Typing effect
             function typeEffect(element, text, speed) {
@@ -130,9 +133,11 @@ chatInput.addEventListener('keypress', function (event) {
     }
 })
 
+
+
 //Function to copy code from the AI Generated Code
-function copyCode() {
-    var codeContent = document.getElementById('code-content');
+function copyCode(id) {
+    var codeContent = document.getElementById(id);
     window.navigator.clipboard.writeText(codeContent.innerHTML);
     const Toast = Swal.mixin({
         toast: true,
