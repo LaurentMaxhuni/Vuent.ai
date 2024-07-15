@@ -550,6 +550,17 @@ footer {
     background-color: rgba(0, 0, 0, 0.1) !important;
 }
 
+.links {
+    display: grid;
+    place-items: start;
+}
+
+@media screen and (max-width: 769px) {
+    .links {
+        place-items: center;
+    }
+}
+
 .links-wrapper .button-outline {
     display: block;
     text-align: center;
